@@ -43,17 +43,12 @@ def setting(request):
 
 
 
-def bolim(request):
-    user=request.user.profile.id
-        
-    formset=formset_factory(NaryadForm,extra=9)
+def paxta(request):
     
     
-       
-    context={"formset":formset}
-    return render(request,'homes/exemple.html',context)
+    return render(request,'homes/paxta.html')
 
-def naryad(request):
+def galla(request):
     
     
     return render(request,'homes/galla.html')
