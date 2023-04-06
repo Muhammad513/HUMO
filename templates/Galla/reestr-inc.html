@@ -1,0 +1,40 @@
+<div class="table-responsive d-lg-md-none">
+
+<table id="br1" class="table-bordered table table-sm  text-center  table-dark table-hover text-light ">
+    <!--"id",'date',"brigada__br_num",'brigada__br_full_name','yuk_num','tr_name','tr_marka','tr_num','sofVazn','ombor__name'-->
+    <thead>
+      <tr style="line-height: 17px;" class="text-warning" >
+        <th >ID</th>
+        <th >САНА</th>
+        <th >Бригада <br> №</th>
+        <th>ЮК ХАТИ<br>№</th>
+        <th>Юк ташувчи<br> Ф И Ш</th>
+        <th>Транспорт <br>Тури</th>
+        <th>Транспорт<br>Раками</th>
+        <th>СОФ ВАЗНИ<br>(ТН)</th>
+        <th>ОМБОР</th>
+    </tr>
+    </thead>
+    <tbody>
+      {%  for i in info %}
+        <tr>
+            <td>{{ i.id}}</td>
+            <td>0{{ i.date.day}}.0{{ i.date.month}}.{{ i.date.year}}</td>
+            <td>{{i.brigada__br_num}}</td>
+            <td>{{i.yuk_num}}</td>
+            <td class="left aligned">{{i.tr_name}}</td>
+            <td>{{i.tr_marka}}</td>
+            <td>{{i.tr_num}}</td>
+            <td>{{i.sofVazn}}</td>
+            {% if i.ombor__name == "DMK-1" %}
+            <td>{{i.ombor__name}}<i class="circle icon text-warning pl-2"></i></td>
+            {% elif i.ombor__name == "DMK-2" %}
+            <td>{{i.ombor__name}}<i class="circle icon text-success pl-2"></i></td>
+            {% else %}
+            <td>{{i.ombor__name}}<i class="circle icon text-secondary pl-2"></i></td>
+            {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,111 @@
+<div class="table-responsive">
+
+<table id="br1" class="table-bordered table table-sm  text-center  table-dark table-hover text-light " style="font-size: 12px;line-height: 11px;">
+    <thead>
+      <tr style="line-height: 17px;" class="text-warning">
+        <th >Бригада <br> №</th>
+        <th>Массив</th>
+        <th class="text-center">Бригдадир <br> Ф И Ш</th>
+        <th>Майдони  <br>(ГА)</th>
+        <th>Режа <br>(ТН)</th>
+        <th>Бир кунда<br>(ТН)</th>
+        <th>Мавсумда<br>(ТН)</th>
+        <th>Скидка<br>(ТН)</th>
+        <th>Центнер <br>(Ц)</th>
+        <th>Бажарилиш<br>(%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%  for i,j in br_item_1 %}
+      <tr>
+        <td >{{i.br_num }}</td>
+        <td>{{i.massiv__name}}</td>
+        <td class="text-left" style="text-align: left;">{{i.br_full_name}}</td>
+        <td class="gek_1">{{i.G_gektar|default_if_none:"0"}}</td>
+        <td class="rej_1">{{i.G_reja|default_if_none:"0"}}</td>
+        <td class="bir_1">{{ j.birkunda|default_if_none:"0"|floatformat:2 }}</td>
+        <td class="mav_1">{{i.kond_br_sums|default_if_none:"0"|floatformat:2}}</td>
+        <td class="ski_1" >0</td>
+        <td class="sen_1">{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+        <td class="baj_1">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+      </tr>
+      {% endfor %}
+      
+        <tr style="font-weight: 900;" class="text-warning">
+          <td  class="center aligned">1 -ХУДУД</td>
+          <td colspan="2" class="" style="text-align: left;">{{agranom3}}</td>
+          <td id="psumg1"></td>
+          <td id="psumg2"></td>
+          <td id="psumg3"></td>
+          <td id="psumg4"></td>
+          <td id="psumg5"></td>
+          <td id="psumg6"></td>
+          <td id="psumg7"></td>
+        </tr>
+  
+      
+      {%  for i,j in br_item_2 %}
+      <tr>
+        <td >{{i.br_num }}</td>
+        <td>{{i.massiv__name}}</td>
+        <td class="text-left" style="text-align: left;">{{i.br_full_name}}</td>
+        <td class="gektar2">{{i.G_gektar|default_if_none:"0"}}</td>
+        <td class="reja2">{{i.G_reja|default_if_none:"0"}}</td>
+        <td class="birkunda2">{{ j.birkunda|default_if_none:"0"|floatformat:2 }}</td>
+        <td class="mavsumda2">{{i.kond_br_sums|default_if_none:"0"|floatformat:2}}</td>
+        <td class="skidka2" >0</td>
+        <td class="sent2">{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+        <td class="bajarilish2">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+      </tr>
+      {% endfor %}
+        <tr style="font-weight: 900;" class="text-warning">
+          <td  class="center aligned">2 -ХУДУД</td>
+          <td colspan="2" class="left aligned" style="text-align: left;">{{agranom2}}</td>
+          <td id="psumg8"></td>
+          <td id="psumg9"></td>
+          <td id="psumg10"></td>
+          <td id="psumg11"></td>
+          <td id="psumg12"></td>
+          <td id="psumg13"></td>
+          <td id="psumg14"></td>
+        </tr>
+        {%  for i,j in br_item_3 %}
+        <tr>
+          <td >{{i.br_num }}</td>
+          <td>{{i.massiv__name}}</td>
+          <td class="text-left" style="text-align: left;">{{i.br_full_name}}</td>
+          <td class="gektar3">{{i.G_gektar|default_if_none:"0"}}</td>
+          <td class="reja3">{{i.G_reja|default_if_none:"0"}}</td>
+          <td class="birkunda3">{{ j.birkunda|default_if_none:"0"|floatformat:2 }}</td>
+          <td class="mavsumda3">{{i.kond_br_sums|default_if_none:"0"|floatformat:2}}</td>
+          <td class="skidka3" >0</td>
+          <td class="sent3">{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+          <td class="bajarilish3">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+        </tr>
+        {% endfor %}
+        <tr style="font-weight: 900;" class="text-warning">
+          <td  class="center aligned">3 -ХУДУД</td>
+          <td colspan="2" class="left aligned" style="text-align: left;">{{agranom3}}</td>
+          <td id="psumg15"></td>
+          <td id="psumg16"></td>
+          <td id="psumg17"></td>
+          <td id="psumg18"></td>
+          <td id="psumg19"></td>
+          <td id="psumg20"></td>
+          <td id="psumg21"></td>
+        </tr>
+      </tbody>
+      <tfoot class="text-warning">
+        <tr style="font-weight: 900;font-size: 15px;">
+          <td colspan="3">&nbsp;А&nbsp;Г&nbsp;Р&nbsp;О&nbsp;М&nbsp;А&nbsp;К&nbsp;С&nbsp;&nbsp;&nbsp; Б&nbsp;У&nbsp;Й&nbsp;И&nbsp;Ч&nbsp;А </td>
+          <td id="psumg22"></td>
+          <td id="psumg23"></td>
+          <td id="psumg24"></td>
+          <td id="psumg25"></td>
+          <td id="psumg26"></td>
+          <td id="psumg27"></td>
+          <td id="psumg28"></td>
+        </tr>
+      </tfoot>
+    </table>
+</div>  

@@ -1,0 +1,51 @@
+<div class="table-responsive d-lg-md-none">
+
+<table id="br1" class="table-bordered table table-sm  text-center  table-dark  text-light " style="line-height: 10px; font-size: 14px;opacity: 0.8;">
+    <thead class="text-info" style="font-weight: 900; font-size: 15px;">
+      <tr style="line-height: 30px;" class="">
+        <th rowspan="3">№</th>
+        <th colspan="6"> ДОН МАХСУЛОТЛАРИ КАМБИНАТИ</th>
+        <th colspan="2" rowspan="2"><i class="circle icon text-danger pr-2"></i>КОРХОНА ОМБОРИ</th>
+        <th colspan="2" rowspan="2">АГРОМАКС БУЙИЧА <br>ЖАМИ</th>
+      </tr>
+      <tr style="line-height: 25px;" class="">
+        <th colspan="2"><i class="circle icon text-warning pr-2"></i>ДАВЛАТГА СОТИШ </th>
+        <th colspan="2"><i class="circle icon text-success pr-2"></i> БИРЖА ОРКАЛИ</i></th>
+        <th colspan="2">ЖАМИ ДМК БУЙИЧА</i></th>
+      </tr>
+      <tr style="line-height: 20px;" class="">
+        <th>РЕЖА</th>
+        <th>ХАКИКАТДА</th>
+        <th>РЕЖА</th>
+        <th>ХАКИКАТДА</th>
+        <th>РЕЖА</th>
+        <th>ХАКИКАТДА</th>
+        <th>РЕЖА</th>
+        <th>ХАКИКАТДА</th>
+        <th >РЕЖА</th>
+        <th>ХАКИКАТДА</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="line-height:100px ; font-size: 18px;">
+        <td>1</td>
+        {% for i in dmk1 %} 
+        <td class="dreja">{{i.reja}}</td>
+        <td class="dxak">{{i.sums}}</td>
+        {% endfor %}
+        {% for i in dmk2 %} 
+        <td class="dreja">{{i.reja}}</td>
+        <td class="dxak">{{i.sums}}</td>
+        {% endfor %}
+        <td id="sumreja"></td>
+        <td id="sumxak"></td>
+        {% for i in dmk3 %} 
+        <td class="zavodreja">{{i.reja}}</td>
+        <td class="zavodxak" >{{i.sums}}</td>
+        {% endfor %}
+        <td id="jamireja"></td>
+        <td id="jamixak"></td>
+      </tr>
+    </tbody>  
+</table>
+</div>  
