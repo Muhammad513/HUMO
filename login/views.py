@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .form import ProfileForm,NaryadForm
 from .models import*
+from .function import*
+from homes.models import*
 from django.forms import formset_factory,modelformset_factory
 # Create your views here.
 
@@ -49,6 +51,11 @@ def paxta(request):
     return render(request,'homes/paxta.html')
 
 def galla(request):
+    brigada=Galla.objects.all()
+        
+    #-1 Hudud
+    br_item_1=item_hudud_G(GBrigada,1)
+    print(br_item_1)
     
-    
-    return render(request,'homes/galla.html')
+    context={"br_item_1":br_item_1}
+    return render(request,'homes/galla.html',context)

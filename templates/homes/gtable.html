@@ -1,0 +1,30 @@
+<table class="table table-bordered">
+    <thead class="text-center">
+    <tr>
+        <th scope="col">Бригада №</th>
+        <th scope="col">Массив</th>
+        <th scope="col">Бригадир Ф И Ш</th>
+        <th scope="col">Майдон (га)</th>
+        <th scope="col">Режа</th>
+        <th scope="col">Бир кунда</th>
+        <th scope="col">Мавсумда</th>
+        <th scope="col">Центнер</th>
+        <th scope="col">Бажарилиш %</th>
+    </tr>
+    </thead>
+    <tbody style="line-height: 12px;" class="text-center">
+        {% for i in br_item_1 %}
+        <tr>
+            <td>{{i.br_num}}</td>
+            <td>{{i.massiv__name}}</td>
+            <td>{{i.brigadir}}</td>
+            <td>{{i.gektar}}</td>
+            <td>{{i.reja}}</td>
+            <td></td>
+            <td>{{i.br_sums|default_if_none:"0"|floatformat:2}}</td>
+            <td>{{i.sent|default_if_none:"0"|floatformat:2}}</td>
+            <td>{{i.bajarilish|default_if_none:"0"|floatformat:2}}</td>
+        </tr>  
+        {% endfor %}
+    </tbody>
+  </table>
