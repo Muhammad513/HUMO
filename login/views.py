@@ -51,11 +51,15 @@ def paxta(request):
     return render(request,'homes/paxta.html')
 
 def galla(request):
-    brigada=Galla.objects.all()
-        
+    date=request.GET.get("date")
+    print(date)
+    date=datenow(date)    
     #-1 Hudud
     br_item_1=item_hudud_G(GBrigada,1)
-    print(br_item_1)
+    birkunda=birkunda_s(GBrigada,1,date)
+    hudud_1=zip(br_item_1,birkunda)
     
-    context={"br_item_1":br_item_1}
+    
+    
+    context={"hudud_1":hudud_1,"date":date}
     return render(request,'homes/galla.html',context)

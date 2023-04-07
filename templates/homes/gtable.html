@@ -13,11 +13,40 @@
     </tr>
     </thead>
     <tbody style="line-height: 12px;" class="text-center">
-        {% for i in br_item_1 %}
+        {% for i,j in hudud_1 %}
         <tr>
             <td>{{i.br_num}}</td>
             <td>{{i.massiv__name}}</td>
-            <td>{{i.brigadir}}</td>
+            <td class="text-left">{{i.brigadir}}</td>
+            <td>{{i.gektar}}</td>
+            <td>{{i.reja}}</td>
+            <td>{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+        </tr>  
+        {% endfor %}
+
+
+        {% for i in br_item_2 %}
+        <tr>
+            <td>{{i.br_num}}</td>
+            <td>{{i.massiv__name}}</td>
+            <td class="text-left">{{i.brigadir}}</td>
+            <td>{{i.gektar}}</td>
+            <td>{{i.reja}}</td>
+            <td></td>
+            <td>{{i.br_sums|default_if_none:"0"|floatformat:2}}</td>
+            <td>{{i.sent|default_if_none:"0"|floatformat:2}}</td>
+            <td>{{i.bajarilish|default_if_none:"0"|floatformat:2}}</td>
+        </tr>  
+        {% endfor %}
+
+        {% for i in br_item_3 %}
+        <tr>
+            <td>{{i.br_num}}</td>
+            <td>{{i.massiv__name}}</td>
+            <td class="text-left">{{i.brigadir}}</td>
             <td>{{i.gektar}}</td>
             <td>{{i.reja}}</td>
             <td></td>
