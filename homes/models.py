@@ -14,16 +14,24 @@ class GBrigada(models.Model):
 class Galla(models.Model):
     date=models.DateField(null=True)
     brigada=models.ForeignKey('GBrigada',on_delete=models.PROTECT,null=True)
-    sofVazn=models.IntegerField(blank=True)
+    brutto=models.FloatField(null=True,blank=True)
+    tara=models.FloatField(null=True,blank=True)
     ombor=models.ForeignKey("OmborG",on_delete=models.CASCADE,blank=True)
     yuk_num=models.CharField(max_length=3,blank=True)
     tr_marka=models.CharField(max_length=20,choices=tr_marka,blank=True)
     tr_num=models.CharField(max_length=20,blank=True)
     tr_name=models.CharField(max_length=30,null=True,blank=True)
     imzo=models.BooleanField(default=False)
+    sofVazn=models.IntegerField(blank=True)
 
     def __str__(self):
         return str(self.sofVazn)
+
+    def save(self,*args,**kwargs):
+        self.sofVazn=round(self.brutto-self.tara,1)
+        super().save(*args,**kwargs)
+
+    
 
 
 class OmborG(models.Model):

@@ -70,3 +70,17 @@ def galla(request):
     
     context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date}
     return render(request,'homes/galla.html',context)
+
+
+def ombor(request):
+    
+    dmk1=item_ombor_G(OmborG,"DMK-1")
+    dmk2=item_ombor_G(OmborG,"DMK-2")
+    zavod=item_ombor_G(OmborG,"ZAVOD")
+    context={"dmk1":dmk1,'dmk2':dmk2,"zavod":zavod}
+    return render(request,'homes/dmk.html',context)
+
+def reestr(request):
+    res=Galla.objects.all().order_by('-date')
+    context={'res':res}
+    return render(request,'homes/restr.html',context)    

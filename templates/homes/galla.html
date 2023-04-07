@@ -1,10 +1,12 @@
+
 {% extends 'homes/dashboard.html' %}
+{% load static %}
 {% block content %}
 <main class="app-content">
   <div class="app-title">
     <div>
       <h1><i class="fa fa-th-list pr-2"></i>ГАЛЛА-2023
-      <p>ГАЛЛА-2023 МАЪЛУМОТЛАРИ</p>
+      <p>ГАЛЛА-2023 Бригадалар Буйича</p>
     </div>
     <div class="block">
       <form action="" method="get" class="pt-2 block">
@@ -33,6 +35,9 @@
   </div>
 </main>
 
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/sum.js' %}"></script>
 {% endblock %}
 
 

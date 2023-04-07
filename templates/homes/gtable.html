@@ -1,26 +1,16 @@
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Хисобот шакл
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <button class="dropdown-item" type="button"><a href="">Бригада буйича</a> </button>
-      <button class="dropdown-item" type="button"><a href=""> Омборлар буйча</a></button>
-      <button class="dropdown-item" type="button"><a href="">Д М К буйича</a></button>
-      <button class="dropdown-item" type="button"><a href="">Рестр</a></button>
-    </div>
-  </div>
+{% include 'homes/dropdown.html' %}
 <table class="table table-bordered">
     <thead class="text-center" style="font-weight:900 ;">
     <tr >
-        <th scope="col"  class="align-middle">Бригада <br> №</th>
-        <th scope="col"  class="align-middle">Массив</th>
+        <th class="align-middle">Бригада <br> №</th>
+        <th class="align-middle">Массив</th>
         <th scope="col"  class="align-middle">Бригадир <br> Ф И Ш</th>
-        <th scope="col"  class="align-middle">Майдон <br> (га)</th>
-        <th scope="col"  class="align-middle">Режа <br>(тн)</th>
-        <th scope="col"  class="align-middle">Бир кунда <br>(тн)</th>
-        <th scope="col"  class="align-middle">Мавсумда <br>(тн)</th>
-        <th scope="col"  class="align-middle">Центнер <br>(Ц)</th>
-        <th scope="col"  class="align-middle">Бажарилиш <br>( % )</th>
+        <th class="align-middle">Майдон <br> (га)</th>
+        <th class="align-middle">Режа <br>(тн)</th>
+        <th class="align-middle">Бир кунда <br>(тн)</th>
+        <th class="align-middle">Мавсумда <br>(тн)</th>
+        <th class="align-middle">Центнер <br>(Ц)</th>
+        <th class="align-middle">Бажарилиш <br>( % )</th>
     </tr>
     </thead>
     <tbody style="line-height: 12px;" class="text-center">
@@ -29,22 +19,22 @@
             <td>{{i.br_num}}</td>
             <td>{{i.massiv__name}}</td>
             <td class="text-left">{{i.brigadir}}</td>
-            <td>{{i.gektar}}</td>
-            <td>{{i.reja}}</td>
-            <td>{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.sent|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+            <td class="gektar_1">{{i.gektar}}</td>
+            <td class="reja_1">{{i.reja}}</td>
+            <td class="birkunda_1" >{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td class="mavsumda_1">{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td class="sentner_1" >{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td class="bajarilish_1">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
-        <tr class="bg-warning" style="font-weight:900 ;">
-            <td colspan="3">РАХМАНОВ НОДИРБЕК </td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+        <tr  style="font-weight:900 ;">
+            <td colspan="3" class="text-left">1-худуд | РАХМАНОВ НОДИРБЕК </td>
+            <td id="psumg1"></td>
+            <td id="psumg2"></td>
+            <td id="psumg3"></td>
+            <td id="psumg4"></td>
+            <td id="psumg5"></td>
+            <td id="psumg6" ></td>
         </tr>
 
         {% for i,j in hudud_2 %}
@@ -52,22 +42,22 @@
             <td>{{i.br_num}}</td>
             <td>{{i.massiv__name}}</td>
             <td class="text-left">{{i.brigadir}}</td>
-            <td>{{i.gektar}}</td>
-            <td>{{i.reja}}</td>
-            <td>{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.sent|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+            <td class="gektar_2">{{i.gektar}}</td>
+            <td class="reja_2">{{i.reja}}</td>
+            <td class="birkunda_2" >{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td class="mavsumda_2">{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td class="sentner_2" >{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td class="bajarilish_2">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
-        <tr class="bg-warning" style="font-weight:900 ;">
-            <td colspan="3">МАНАПОВ САЙДУЛЛО </td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+        <tr  style="font-weight:900 ;">
+            <td colspan="3" class="text-left">2-худуд | МАНАПОВ САЙДУЛЛО </td>
+            <td id="psumg7"></td>
+            <td id="psumg8"></td>
+            <td id="psumg9"></td>
+            <td id="psumg10"></td>
+            <td id="psumg11"></td>
+            <td id="psumg12" ></td>
         </tr>
 
         {% for i,j in hudud_3 %}
@@ -75,31 +65,31 @@
             <td>{{i.br_num}}</td>
             <td>{{i.massiv__name}}</td>
             <td class="text-left">{{i.brigadir}}</td>
-            <td>{{i.gektar}}</td>
-            <td>{{i.reja}}</td>
-            <td>{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.sent|default_if_none:"0"|floatformat:1}}</td>
-            <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+            <td class="gektar_3">{{i.gektar}}</td>
+            <td class="reja_3">{{i.reja}}</td>
+            <td class="birkunda_3" >{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td class="mavsumda_3">{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td class="sentner_3" >{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td class="bajarilish_3">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
-        <tr class="bg-warning" style="font-weight:900 ;">
-            <td colspan="3">ОРИФЖОНОВ ФАРХОД </td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+        <tr style="font-weight:900 ;">
+            <td colspan="3" class="text-left">3-худуд | ОРИФЖОНОВ ФАРХОД </td>
+            <td id="psumg13"></td>
+            <td id="psumg14"></td>
+            <td id="psumg15"></td>
+            <td id="psumg16"></td>
+            <td id="psumg17"></td>
+            <td id="psumg18" ></td>
         </tr>
-        <tr class="bg-warning" style="font-weight:900 ;">
-            <td colspan="3">АГРОМАКС БУЙЧА ЖАМИ</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+        <tr style="font-weight:900 ;font-size:16px ;">
+            <td colspan="3" class="text-left">АГРОМАКС БУЙЧА ЖАМИ</td>
+            <td id="psumg19"></td>
+            <td id="psumg20"></td>
+            <td id="psumg21"></td>
+            <td id="psumg22"></td>
+            <td id="psumg23"></td>
+            <td id="psumg24" ></td>
         </tr>
 
     </tbody>

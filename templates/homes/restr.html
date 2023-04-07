@@ -1,0 +1,37 @@
+{% extends 'homes/dashboard.html' %}
+{% block content %}
+<main class="app-content">
+    <div class="app-title">
+      <div>
+        <h1><i class="fa fa-th-list pr-2"></i>ГАЛЛА-2023
+        <p>ГАЛЛА-2023&nbsp;&nbsp;&nbsp; РЕЕСТР</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <div class="table-responsive">
+              <table class="table table-sm table-hover table-dark">
+                
+                {% include 'homes/reestr-inc.html' %}
+  
+  
+  
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}
+
+
+
+
+

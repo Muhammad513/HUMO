@@ -1,0 +1,39 @@
+{% include 'homes/dropdown.html' %}
+<table class="table table-bordered">
+    <thead class="text-center" style="font-weight:900 ;">
+    <tr >
+        <th>№</th>
+        <th class="align-middle">сана</th>
+        <th class="align-middle">Бригада</th>
+        <th class="align-middle">Юк хати <br> №</th>
+        <th class="align-middle">Транспорт <br> маркаси</th>
+        <th class="align-middle">Транспорт <br> раками</th>
+        <th class="align-middle">Тушувчи <br>ФИО</th>
+        <th class="align-middle">Брутто</th>
+        <th class="align-middle">Тара</th>
+        <th scope="col"  class="align-middle">Соф Вазни</th>
+        <th class="align-middle">ИМЗО</th>
+    </tr>
+    </thead>
+    <tbody class="text-center">
+    {% for i in res %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.date|date:"d.m.Y"}}</td>
+        <td>{{i.brigada}}</td>
+        <td>{{i.yuk_num}}</td>
+        <td>{{i.tr_marka}}</td>
+        <td>{{i.tr_num}}</td>
+        <td>{{i.tr_name}}</td>
+        <td>{{i.brutto}}</td>
+        <td>{{i.tara}}</td>
+        <td>{{i.sofVazn}}</td>
+        {% if i.imzo %}
+        <td class="text-center"><button class="ui primary button mini">Подтверждён</button></td>
+        {% else %}
+        <td class="text-center"><button class="ui red button mini">Ожидает</button></td>
+        {% endif %}
+    </tr>
+    {% endfor %}    
+    </tbody>
+  </table>

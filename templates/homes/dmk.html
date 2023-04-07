@@ -1,0 +1,80 @@
+{% extends 'homes/dashboard.html' %}
+{% load static %}
+{% block content %}
+<main class="app-content">
+  <div class="app-title">
+    <div>
+        <h1><i class="fa fa-th-list pr-2"></i>ГАЛЛА-2023
+        <p>ГАЛЛА-2023 Омборлар Буйича</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tile">
+        <div class="tile-body">
+            {% include 'homes/dropdown.html' %}
+          <div class="table-responsive">
+            <table id="br1" class="table-bordered table table-sm  text-center  table-dark  text-light " style="line-height: 10px; font-size: 14px;opacity: 0.8;">
+                <thead class="text-info" style="font-weight: 900; font-size: 15px;">
+                  <tr style="line-height: 30px;" class="">
+                    
+                    <th colspan="6" class="align-middle"> ДОН МАХСУЛОТЛАРИ КАМБИНАТИ</th>
+                    <th colspan="2" rowspan="2"><i class="circle icon text-danger pr-2"></i>КОРХОНА ОМБОРИ</th>
+                    <th colspan="2" rowspan="2">АГРОМАКС БУЙИЧА <br>ЖАМИ</th>
+                  </tr>
+                  <tr style="line-height: 25px;" class="">
+                    <th colspan="2"><i class="circle icon text-warning pr-2 "></i>ДАВЛАТГА СОТИШ </th>
+                    <th colspan="2"><i class="circle icon text-success pr-2 "></i> БИРЖА ОРКАЛИ</i></th>
+                    <th colspan="2">ЖАМИ ДМК БУЙИЧА</i></th>
+                  </tr>
+                  <tr style="line-height: 40px;" class="">
+                    <th>РЕЖА</th>
+                    <th>ХАКИКАТДА</th>
+                    <th>РЕЖА</th>
+                    <th>ХАКИКАТДА</th>
+                    <th>РЕЖА</th>
+                    <th>ХАКИКАТДА</th>
+                    <th>РЕЖА</th>
+                    <th>ХАКИКАТДА</th>
+                    <th >РЕЖА</th>
+                    <th>ХАКИКАТДА</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="line-height:100px ; font-size: 18px;">
+                    {% for i in dmk1 %}
+                    <td class="dreja">{{i.reja|default_if_none:"0"|floatformat:1}}</td>
+                    <td class="dxak">{{i.sums|default_if_none:"0"|floatformat:1}}</td>
+                    {% endfor %}
+                    {% for i in dmk2 %}
+                    <td class="dreja">{{i.reja|default_if_none:"0"|floatformat:1}}</td>
+                    <td class="dxak">{{i.sums|default_if_none:"0"|floatformat:1}}</td>
+                    {% endfor %}
+                    <td id="sumreja"></td>
+                    <td id="sumxak"></td>
+                    {% for i in zavod %}
+                    <td class="zavodreja">{{i.reja|default_if_none:"0"|floatformat:1}}</td>
+                    <td class="zavodxak" >{{i.sums|default_if_none:"0"|floatformat:1}}</td>
+                    {% endfor %}
+                    <td id="jamireja"></td>
+                    <td id="jamixak"></td>
+                  </tr>
+                </tbody>  
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+{% block js %}
+<script src=" {% static 'js/dmk.js' %}"></script>
+
+{% endblock %}
+
+
+
+
+
