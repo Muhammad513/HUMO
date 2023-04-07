@@ -73,10 +73,16 @@
       </div>
 
       <ul class="app-menu">
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">ХОСИЛ-2023</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-line-chart text-success"></i><span class="app-menu__label">ХОСИЛ-2023</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{% url 'galla' %}"><i class="pr-2 fa fa-circle"></i>ГАЛЛА-2023</a></li>
             <li><a class="treeview-item" href="{% url 'paxta' %}"  rel="noopener"><i class="pr-2 fa fa-circle"></i>ПАХТА-2023</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card-o text-success"></i><span class="app-menu__label">ХОДИМЛАР</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{% url 'galla' %}"><i class="pr-2 fa fa-circle"></i>ХОДИМЛАР</a></li>
+            <li><a class="treeview-item" href="{% url 'paxta' %}"  rel="noopener"><i class="pr-2 fa fa-circle"></i>ТАВАЛУД КУН</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-lock text-info"></i><span class="app-menu__label">ADMIN</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -85,12 +91,7 @@
             <li><a class="treeview-item" href=""  rel="noopener"><i class="pr-2 fa fa-circle text-info"></i>ПАХТА ИМЗО</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-commenting-o text-success"></i><span class="app-menu__label">AGROSEND</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href=""><i class="pr-2 fa fa-circle text-info" ></i>ГАЛЛА ИМЗО</a></li>
-            <li><a class="treeview-item" href=""  rel="noopener"><i class="pr-2 fa fa-circle text-info"></i>ПАХТА ИМЗО</a></li>
-          </ul>
-        </li>
+        <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-commenting-o text-success"></i><span class="app-menu__label">AGROSEND</span></a>
       </ul>
     </aside>
     <!----------------------------------------------------------------------------------->
