@@ -1,15 +1,26 @@
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Хисобот шакл
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" type="button"><a href="">Бригада буйича</a> </button>
+      <button class="dropdown-item" type="button"><a href=""> Омборлар буйча</a></button>
+      <button class="dropdown-item" type="button"><a href="">Д М К буйича</a></button>
+      <button class="dropdown-item" type="button"><a href="">Рестр</a></button>
+    </div>
+  </div>
 <table class="table table-bordered">
-    <thead class="text-center">
-    <tr>
-        <th scope="col">Бригада №</th>
-        <th scope="col">Массив</th>
-        <th scope="col">Бригадир Ф И Ш</th>
-        <th scope="col">Майдон (га)</th>
-        <th scope="col">Режа</th>
-        <th scope="col">Бир кунда</th>
-        <th scope="col">Мавсумда</th>
-        <th scope="col">Центнер</th>
-        <th scope="col">Бажарилиш %</th>
+    <thead class="text-center" style="font-weight:900 ;">
+    <tr >
+        <th scope="col"  class="align-middle">Бригада <br> №</th>
+        <th scope="col"  class="align-middle">Массив</th>
+        <th scope="col"  class="align-middle">Бригадир <br> Ф И Ш</th>
+        <th scope="col"  class="align-middle">Майдон <br> (га)</th>
+        <th scope="col"  class="align-middle">Режа <br>(тн)</th>
+        <th scope="col"  class="align-middle">Бир кунда <br>(тн)</th>
+        <th scope="col"  class="align-middle">Мавсумда <br>(тн)</th>
+        <th scope="col"  class="align-middle">Центнер <br>(Ц)</th>
+        <th scope="col"  class="align-middle">Бажарилиш <br>( % )</th>
     </tr>
     </thead>
     <tbody style="line-height: 12px;" class="text-center">
@@ -26,34 +37,70 @@
             <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
+        <tr class="bg-warning" style="font-weight:900 ;">
+            <td colspan="3">РАХМАНОВ НОДИРБЕК </td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
 
-
-        {% for i in br_item_2 %}
+        {% for i,j in hudud_2 %}
         <tr>
             <td>{{i.br_num}}</td>
             <td>{{i.massiv__name}}</td>
             <td class="text-left">{{i.brigadir}}</td>
             <td>{{i.gektar}}</td>
             <td>{{i.reja}}</td>
-            <td></td>
-            <td>{{i.br_sums|default_if_none:"0"|floatformat:2}}</td>
-            <td>{{i.sent|default_if_none:"0"|floatformat:2}}</td>
-            <td>{{i.bajarilish|default_if_none:"0"|floatformat:2}}</td>
+            <td>{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
+        <tr class="bg-warning" style="font-weight:900 ;">
+            <td colspan="3">МАНАПОВ САЙДУЛЛО </td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
 
-        {% for i in br_item_3 %}
+        {% for i,j in hudud_3 %}
         <tr>
             <td>{{i.br_num}}</td>
             <td>{{i.massiv__name}}</td>
             <td class="text-left">{{i.brigadir}}</td>
             <td>{{i.gektar}}</td>
             <td>{{i.reja}}</td>
-            <td></td>
-            <td>{{i.br_sums|default_if_none:"0"|floatformat:2}}</td>
-            <td>{{i.sent|default_if_none:"0"|floatformat:2}}</td>
-            <td>{{i.bajarilish|default_if_none:"0"|floatformat:2}}</td>
+            <td>{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
+        <tr class="bg-warning" style="font-weight:900 ;">
+            <td colspan="3">ОРИФЖОНОВ ФАРХОД </td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr class="bg-warning" style="font-weight:900 ;">
+            <td colspan="3">АГРОМАКС БУЙЧА ЖАМИ</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+
     </tbody>
   </table>

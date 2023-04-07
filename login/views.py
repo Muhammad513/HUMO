@@ -58,8 +58,15 @@ def galla(request):
     br_item_1=item_hudud_G(GBrigada,1)
     birkunda=birkunda_s(GBrigada,1,date)
     hudud_1=zip(br_item_1,birkunda)
+    #-2 Hudud
+    br_item_2=item_hudud_G(GBrigada,2)
+    birkunda=birkunda_s(GBrigada,2,date)
+    hudud_2=zip(br_item_2,birkunda)
+    #-3 Hudud
+    br_item_3=item_hudud_G(GBrigada,3)
+    birkunda=birkunda_s(GBrigada,3,date)
+    hudud_3=zip(br_item_3,birkunda)
     
     
-    
-    context={"hudud_1":hudud_1,"date":date}
+    context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date}
     return render(request,'homes/galla.html',context)
