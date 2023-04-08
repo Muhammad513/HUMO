@@ -84,3 +84,11 @@ def reestr(request):
     res=Galla.objects.all().order_by('-date')
     context={'res':res}
     return render(request,'homes/restr.html',context)    
+
+
+
+def chats(request):
+    
+    
+    
+    return render(request,'agrosend/chat.html')        
