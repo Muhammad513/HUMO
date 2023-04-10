@@ -1,5 +1,6 @@
 from django.db import models
 from .choices import tr_marka
+import os
 class GBrigada(models.Model):
     br_num=models.CharField(max_length=2)
     massiv=models.ForeignKey('Massiv',on_delete=models.PROTECT)
@@ -61,4 +62,36 @@ class Hudud(models.Model):
     
     def __str__(self):
         return str(self.Agranom_full_name)
+
+class Bolim(models.Model):
+    bolim=models.CharField(max_length=30)
+
+    def __str__(self):
+        return str(self.bolim)
+
+
+
+class Lavozim(models.Model):
+    lavozim=models.CharField(max_length=30)    
+
+    def __str__(self):
+        return str(self.lavozim)
+
+def get_image_path(instance,filename):
+    return os.path.join('Hodimlar', str(instance.id),filename)
+    
+class Hodim(models.Model):
+    f_name=models.CharField(max_length=100)
+    l_name=models.CharField(max_length=100)
+    full_name=models.CharField(max_length=100)
+    bolim=models.ForeignKey('Bolim',on_delete=models.PROTECT)
+    lavozim=models.ForeignKey('Lavozim',on_delete=models.PROTECT)
+    birthday=models.DateField()
+    jshir=models.CharField(max_length=14)
+    pasport=models.CharField(max_length=9)
+    pic=models.ImageField(upload_to=get_image_path,default='default/avatar.png')
+
+    def __str__(self):
+        return f'{self.l_name }{self.f_name }{self.full_name}'
+    
 

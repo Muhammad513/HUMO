@@ -87,8 +87,9 @@ def reestr(request):
 
 
 
-def chats(request):
+def kadr(request):
+    kadr=Hodim.objects.all().order_by('bolim')
     
+    context={"kadr":kadr}
     
-    
-    return render(request,'agrosend/chat.html')        
+    return render(request,'kadr/kadr-inc.html',context)        
