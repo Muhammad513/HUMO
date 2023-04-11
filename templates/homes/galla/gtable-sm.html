@@ -1,91 +1,91 @@
 {% include 'homes/dropdown.html' %}
-<table class="table table-bordered">
-    <thead class="text-center" style="font-weight:900 ;">
+<table class="table table-bordered" style="line-height: 1px;">
+    <thead class="text-center" style="font-weight:900 ;line-height: 15px;">
     <tr >
         <th class="align-middle">Бригада <br> №</th>
         <th class="align-middle">Массив</th>
         <th class="align-middle">Майдон <br> (га)</th>
         <th class="align-middle">Режа <br>(тн)</th>
-        <th class="align-middle">Бир кунда <br>(тн)</th>
+        <th class="align-middle" style="color:red;">Бир кунда <br>(тн)</th>
         <th class="align-middle">Мавсумда <br>(тн)</th>
         <th class="align-middle">Центнер <br>(Ц)</th>
         <th class="align-middle">Бажарилиш <br>( % )</th>
     </tr>
     </thead>
-    <tbody style="line-height: 12px;" class="text-center">
-        {% for a,b in hudud_s1 %}
+    <tbody style="line-height: 5px;" class="text-center">
+        {% for i,j in hududsm_1 %}
         <tr>
-            <td>{{a.br_num}}</td>
-            <td>{{a.massiv__name}}</td>
-            <td class="gektar_1">{{a.gektar}}</td>
-            <td class="reja_1">{{a.reja}}</td>
-            <td class="birkunda_1" >{{b.birkunda|default_if_none:"0"|floatformat:1}}</td>
-            <td class="mavsumda_1">{{a.br_sums|default_if_none:"0"|floatformat:1}}</td>
-            <td class="sentner_1" >{{a.sent|default_if_none:"0"|floatformat:1}}</td>
-            <td class="bajarilish_1">{{a.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.br_num}}</td>
+            <td>{{i.massiv__name}}</td>
+            <td class="gektarsm_1">{{i.gektar}}</td>
+            <td class="rejasm_1">{{i.reja}}</td>
+            <td class="birkundasm_1" style="color:red;">{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td class="mavsumdasm_1">{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td class="sentnersm_1" >{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td class="bajarilishsm_1">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
         <tr  style="font-weight:900 ;">
-            <td colspan="2" class="text-left">1-худуд | РАХМАНОВ НОДИРБЕК </td>
-            <td id="psumg1"></td>
-            <td id="psumg2"></td>
-            <td id="psumg3"></td>
-            <td id="psumg4"></td>
-            <td id="psumg5"></td>
-            <td id="psumg6" ></td>
+            <td colspan="2" class="text-left">1|РАХМАНОВ Н </td>
+            <td id="psumg1sm"></td>
+            <td id="psumg2sm"></td>
+            <td id="psumg3sm" style="color:red;"></td>
+            <td id="psumg4sm"></td>
+            <td id="psumg5sm"></td>
+            <td id="psumg6sm" ></td>
         </tr>
 
-        {% for a,b in hudud_s2 %}
+        {% for i,j in hududsm_2 %}
         <tr>
-            <td>{{a.br_num}}</td>
-            <td>{{a.massiv__name}}</td>
-            <td class="gektar_2">{{a.gektar}}</td>
-            <td class="reja_2">{{a.reja}}</td>
-            <td class="birkunda_2" >{{b.birkunda|default_if_none:"0"|floatformat:1}}</td>
-            <td class="mavsumda_2">{{a.br_sums|default_if_none:"0"|floatformat:1}}</td>
-            <td class="sentner_2" >{{a.sent|default_if_none:"0"|floatformat:1}}</td>
-            <td class="bajarilish_2">{{a.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.br_num}}</td>
+            <td>{{i.massiv__name}}</td>
+            <td class="gektarsm_2">{{i.gektar}}</td>
+            <td class="rejasm_2">{{i.reja}}</td>
+            <td class="birkundasm_2" style="color:red;" >{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td class="mavsumdasm_2">{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td class="sentnersm_2" >{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td class="bajarilishsm_2">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
         <tr  style="font-weight:900 ;">
-            <td colspan="2" class="text-left">2-худуд | МАНАПОВ САЙДУЛЛО </td>
-            <td id="psumg7"></td>
-            <td id="psumg8"></td>
-            <td id="psumg9"></td>
-            <td id="psumg10"></td>
-            <td id="psumg11"></td>
-            <td id="psumg12" ></td>
+            <td colspan="2" class="text-left">2|МАНАПОВ С</td>
+            <td id="psumg7sm"></td>
+            <td id="psumg8sm"></td>
+            <td id="psumg9sm"></td>
+            <td id="psumg10sm"></td>
+            <td id="psumg11sm"></td>
+            <td id="psumg12sm" ></td>
         </tr>
 
-        {% for a,b in hudud_s3 %}
+        {% for i,j in hududsm_3 %}
         <tr>
-            <td>{{a.br_num}}</td>
-            <td>{{a.massiv__name}}</td>
-            <td class="gektar_3">{{a.gektar}}</td>
-            <td class="reja_3">{{a.reja}}</td>
-            <td class="birkunda_3" >{{b.birkunda|default_if_none:"0"|floatformat:1}}</td>
-            <td class="mavsumda_3">{{a.br_sums|default_if_none:"0"|floatformat:1}}</td>
-            <td class="sentner_3" >{{a.sent|default_if_none:"0"|floatformat:1}}</td>
-            <td class="bajarilish_3">{{a.bajarilish|default_if_none:"0"|floatformat:1}}</td>
+            <td>{{i.br_num}}</td>
+            <td>{{i.massiv__name}}</td>
+            <td class="gektarsm_3">{{i.gektar}}</td>
+            <td class="rejasm_3">{{i.reja}}</td>
+            <td class="birkundasm_3" style="color:red;" >{{j.birkunda|default_if_none:"0"|floatformat:1}}</td>
+            <td class="mavsumdasm_3">{{i.br_sums|default_if_none:"0"|floatformat:1}}</td>
+            <td class="sentnersm_3" >{{i.sent|default_if_none:"0"|floatformat:1}}</td>
+            <td class="bajarilishsm_3">{{i.bajarilish|default_if_none:"0"|floatformat:1}}</td>
         </tr>  
         {% endfor %}
         <tr style="font-weight:900 ;">
-            <td colspan="2" class="text-left">3-худуд | ОРИФЖОНОВ ФАРХОД </td>
-            <td id="psumg13"></td>
-            <td id="psumg14"></td>
-            <td id="psumg15"></td>
-            <td id="psumg16"></td>
-            <td id="psumg17"></td>
-            <td id="psumg18" ></td>
+            <td colspan="2" class="text-left">3|ОРИФЖОНОВ Ф</td>
+            <td id="psumg13sm"></td>
+            <td id="psumg14sm"></td>
+            <td id="psumg15sm" style="color:red;"></td>
+            <td id="psumg16sm"></td>
+            <td id="psumg17sm"></td>
+            <td id="psumg18sm" ></td>
         </tr>
         <tr style="font-weight:900 ;font-size:16px ;">
-            <td colspan="2" class="text-left">АГРОМАКС БУЙЧА ЖАМИ</td>
-            <td id="psumg19"></td>
-            <td id="psumg20"></td>
-            <td id="psumg21"></td>
-            <td id="psumg22"></td>
-            <td id="psumg23"></td>
-            <td id="psumg24" ></td>
+            <td colspan="2" class="text-left">АГРОМАКС</td>
+            <td id="psumg19sm"></td>
+            <td id="psumg20sm"></td>
+            <td id="psumg21sm" style="color:red;"></td>
+            <td id="psumg22sm"></td>
+            <td id="psumg23sm"></td>
+            <td id="psumg24sm" ></td>
         </tr>
 
     </tbody>

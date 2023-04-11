@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import loginPage,logoutUser,setting,paxta,galla,ombor,reestr,kadr
+from .views import*
 
 
 urlpatterns = [
@@ -11,4 +11,6 @@ urlpatterns = [
     path('ombor/',ombor,name='ombor'),
     path('reestr/',reestr,name='reestr'),
     path('kadr/',kadr,name='kadr'),
+    path('tavalud/',tavalud,name='tavalud'),
+
 ]

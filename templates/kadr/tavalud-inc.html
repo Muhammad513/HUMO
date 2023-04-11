@@ -1,0 +1,27 @@
+<div class="row">
+    
+    {% for i in tavalud %}
+    {% if i.birthday|date:'d.m' == dates  %}
+    <div class="col-sm-12 col-md-6 col-lg-3">
+    <div class="card">
+        <div class="back"></div>
+        <div class="front">
+          <div class="imgset">
+               <img width="100%" src="{{i.pic.url}}">
+               <h4 class="pt-3">{{i.f_name}} {{i.l_name}}</h4>
+               <h5 class=""><i class="birthday cake icon"></i> HAPPY BIRTHDAY </h5>
+               <p>{{i.birthday|date:"d.m.Y"}}</p>
+             </div>
+        </div>
+        <div class="text-container">
+          <p id="head">{{i.f_name}} {{i.l_name}}</p>
+          <p style="font-weight: 900; font-size: small;" class="">Tavallud kuningiz muborak bo‘lsin! Xar bir kuningiz ajoyib mo‘‘jizalar bilan to‘lib toshsin, barcha orzu-istaklaringiz xech qanday qiyinchiliklarsiz va to‘siqlarsiz ro‘yobga chiqsin! Biz siz bilan bir korxonada ishlayabturganimizdan xursandmiz. <br> HURMAT VA EXTIROM ILA "AGROMAX" MCHJ MAMURYATI!</p>
+        </div>
+      </div>
+    </div>
+      {% endif %}
+    {% endfor %}
+
+    
+</div>
+    

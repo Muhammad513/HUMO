@@ -6,7 +6,7 @@ from .models import*
 from .function import*
 from homes.models import*
 from django.forms import formset_factory,modelformset_factory
-# Create your views here.
+from datetime import datetime
 
 def loginPage(request):
     if request.method=="POST":
@@ -52,23 +52,35 @@ def paxta(request):
 
 def galla(request):
     date=request.GET.get("date")
-    print(date)
     date=datenow(date)    
     #-1 Hudud
     br_item_1=item_hudud_G(GBrigada,1)
     birkunda=birkunda_s(GBrigada,1,date)
     hudud_1=zip(br_item_1,birkunda)
+    br_itemsm_1=item_hudud_G(GBrigada,1)
+    birkundasm=birkunda_s(GBrigada,1,date)
+    hududsm_1=zip(br_itemsm_1,birkundasm)
+    
+    
     #-2 Hudud
     br_item_2=item_hudud_G(GBrigada,2)
     birkunda=birkunda_s(GBrigada,2,date)
     hudud_2=zip(br_item_2,birkunda)
+    br_itemsm_2=item_hudud_G(GBrigada,2)
+    birkundasm=birkunda_s(GBrigada,2,date)
+    hududsm_2=zip(br_itemsm_2,birkundasm)
+    
     #-3 Hudud
     br_item_3=item_hudud_G(GBrigada,3)
     birkunda=birkunda_s(GBrigada,3,date)
     hudud_3=zip(br_item_3,birkunda)
+    br_itemsm_3=item_hudud_G(GBrigada,3)
+    birkundasm=birkunda_s(GBrigada,3,date)
+    hududsm_3=zip(br_item_3,birkunda)
     
     
-    context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date,"hudud_s1":hudud_1,"hudud_s2":hudud_2,"hudud_s3":hudud_3}
+    context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date,
+             'hududsm_1':hududsm_1,'hududsm_2':hududsm_2,'hududsm_3':hududsm_3}
     return render(request,'homes/galla/galla.html',context)
 
 
@@ -93,3 +105,12 @@ def kadr(request):
     context={"kadr":kadr}
     
     return render(request,'kadr/kadr-inc.html',context)        
+
+
+def tavalud(request):
+    dates=datetime.now().strftime("%d.%m")
+    tavalud=Hodim.objects.all()
+    
+    context={"tavalud":tavalud,"dates":dates}
+    
+    return render(request,'kadr/tavalud.html',context)        
