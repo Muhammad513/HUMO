@@ -20,15 +20,17 @@
     <div class="col-md-12">
       <div class="tile">
         <div class="tile-body">
-          <div class="table-responsive">
+          <div class="table-responsive-lg d-none d-sm-block">
             <table class="table table-sm table-hover table-dark">
-              
-              {% include 'homes/gtable.html' %}
-
-
-
+              {% include 'homes/galla/gtable.html' %}
             </table>
           </div>
+          <div class="table-responsive-sm d-sm-none">
+            <table class="table table-sm table-hover table-dark">
+              {% include 'homes/galla/gtable-sm.html' %}
+            </table>
+          </div>
+         
         </div>
       </div>
     </div>

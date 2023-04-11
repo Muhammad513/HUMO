@@ -1,0 +1,24 @@
+{% extends 'homes/dashboard.html' %}
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/chat.css' %}">
+{% endblock %}
+{% block content %}
+<main class="app-content">
+    <div class="app-title">
+        {% include 'agrosend/chat.html' %}
+
+
+    </div>
+</main>
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}
+
+
+
+
+

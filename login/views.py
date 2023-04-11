@@ -68,8 +68,8 @@ def galla(request):
     hudud_3=zip(br_item_3,birkunda)
     
     
-    context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date}
-    return render(request,'homes/galla.html',context)
+    context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date,"hudud_s1":hudud_1,"hudud_s2":hudud_2,"hudud_s3":hudud_3}
+    return render(request,'homes/galla/galla.html',context)
 
 
 def ombor(request):
