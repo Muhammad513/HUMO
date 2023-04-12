@@ -52,7 +52,10 @@ def paxta(request):
 
 def galla(request):
     date=request.GET.get("date")
-    date=datenow(date)    
+    date=datenow(date)
+    imzolandi=Galla.objects.filter(imzo=True).count()
+    imzosiz=Galla.objects.filter(imzo=False).count()
+     
     #-1 Hudud
     br_item_1=item_hudud_G(GBrigada,1)
     birkunda=birkunda_s(GBrigada,1,date)
@@ -80,7 +83,8 @@ def galla(request):
     
     
     context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date,
-             'hududsm_1':hududsm_1,'hududsm_2':hududsm_2,'hududsm_3':hududsm_3}
+             'hududsm_1':hududsm_1,'hududsm_2':hududsm_2,'hududsm_3':hududsm_3,
+             'imzolandi':imzolandi,'imzosiz':imzosiz}
     return render(request,'homes/galla/galla.html',context)
 
 

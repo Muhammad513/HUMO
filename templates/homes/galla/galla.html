@@ -3,19 +3,39 @@
 {% load static %}
 {% block content %}
 <main class="app-content bg-warning">
-  <div class="app-title" style="background-color: gold;">
-    <div>
-      <h1><i class="fa fa-th-list pr-2"></i>ҒАЛЛА-2023
-      <p>ГАЛЛА-2023 Бригадалар Буйича</p>
+  <h4 style="display: block;"><i class="fa fa-th-list pr-2"></i>ҒАЛЛА-2023
+    <p>ГАЛЛА-2023 Бригадалар Буйича</p>
+  </h4>
+  <hr>
+  <div class="app-title p-0" style="background-color: gold;">
+    <div class="ui compac menu mini bg-warning mt-3">
+      <a class="item">
+        <i class="shipping fast icon ui purple"></i>Ожидает..
+        <div class="floating ui purple label">{{imzosiz}}</div>
+      </a>
+      <a class="item">
+        <i class="truck icon ui ui teal"></i>Подтверждён
+        <div class="floating ui teal label">{{imzolandi}}</div>
+      </a>
+      <a class="item">
+        <i class="exclamation triangle icon text-danger"></i>Отказное
+        <div class="floating ui red label">0</div>
+      </a>
     </div>
-    <div class="block">
-      <form action="" method="get" class="pt-2 block">
+   
+    
+   
+      
+      <form action="" method="get" class=" block">
         {% csrf_token %}
         <input type="date" name="date" id="date" value="{{date}}" >
         <button type="submit" class="btn btn-primary btn-block btn-sm mt-2">Обновит</button>
       </form>
-    </div>
+    
+
+    
   </div>
+  
   <div class="row">
     <div class="col-lg-12">
       <div class="tile">
