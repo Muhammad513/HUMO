@@ -93,7 +93,7 @@ def ombor(request):
     return render(request,'homes/dmk.html',context)
 
 def reestr(request):
-    res=Galla.objects.all().order_by('-date')
+    res=Galla.objects.all().order_by('-date').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
     context={'res':res}
     return render(request,'homes/restr.html',context)    
 

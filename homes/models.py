@@ -84,11 +84,11 @@ class Hodim(models.Model):
     f_name=models.CharField(max_length=100)
     l_name=models.CharField(max_length=100)
     full_name=models.CharField(max_length=100)
-    bolim=models.ForeignKey('Bolim',on_delete=models.PROTECT)
-    lavozim=models.ForeignKey('Lavozim',on_delete=models.PROTECT)
+    bolim=models.ForeignKey('Bolim',on_delete=models.PROTECT,null=True,blank=True)
+    lavozim=models.ForeignKey('Lavozim',on_delete=models.PROTECT,null=True,blank=True)
     birthday=models.DateField()
     jshir=models.CharField(max_length=14)
-    pasport=models.CharField(max_length=9)
+    pasport=models.CharField(max_length=9,null=True,blank=True)
     pic=models.ImageField(upload_to=get_image_path,default='default/avatar.png')
 
     def __str__(self):

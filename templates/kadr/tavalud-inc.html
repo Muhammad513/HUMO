@@ -6,7 +6,7 @@
     <div class="card">
         <div class="back"></div>
         <div class="front">
-          <div class="imgset">
+          <div class="imgset" style="color:white ;">
                <img width="100%" src="{{i.pic.url}}">
                <h4 class="pt-3">{{i.f_name}} {{i.l_name}}</h4>
                <h5 class=""><i class="birthday cake icon"></i> HAPPY BIRTHDAY </h5>
@@ -19,7 +19,8 @@
         </div>
       </div>
     </div>
-      {% endif %}
+    {% else %}
+    {% endif %}
     {% endfor %}
 
     
