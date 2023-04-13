@@ -1,6 +1,7 @@
 from django.db import models
 from .choices import tr_marka
 import os
+import datetime
 class GBrigada(models.Model):
     br_num=models.CharField(max_length=2)
     massiv=models.ForeignKey('Massiv',on_delete=models.PROTECT)
@@ -97,3 +98,6 @@ class Hodim(models.Model):
         return f'{self.l_name }{self.f_name }{self.full_name}'
     
 
+    def year(self):
+        age=datetime.now()-self.birthday
+        return age

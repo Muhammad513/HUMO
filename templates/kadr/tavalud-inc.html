@@ -1,28 +1,43 @@
-<div class="row">
-    
-    {% for i in tavalud %}
-    {% if i.birthday|date:'d.m' == dates  %}
-    <div class="col-sm-12 col-md-6 col-lg-3">
-    <div class="card">
-        <div class="back"></div>
-        <div class="front">
-          <div class="imgset" style="color:white ;">
-               <img width="100%" src="{{i.pic.url}}">
-               <h4 class="pt-3">{{i.f_name}} {{i.l_name}}</h4>
-               <h5 class=""><i class="birthday cake icon"></i> HAPPY BIRTHDAY </h5>
-               <p>{{i.birthday|date:"d.m.Y"}}</p>
-             </div>
-        </div>
-        <div class="text-container">
-          <p id="head">{{i.f_name}} {{i.l_name}}</p>
-          <p style="font-weight: 900; font-size: small;" class="">Tavallud kuningiz muborak bo‘lsin! Xar bir kuningiz ajoyib mo‘‘jizalar bilan to‘lib toshsin, barcha orzu-istaklaringiz xech qanday qiyinchiliklarsiz va to‘siqlarsiz ro‘yobga chiqsin! Biz siz bilan bir korxonada ishlayabturganimizdan xursandmiz. <br> HURMAT VA EXTIROM ILA "AGROMAX" MCHJ MAMURYATI!</p>
-        </div>
-      </div>
-    </div>
-    {% else %}
-    {% endif %}
-    {% endfor %}
 
-    
+<div class="ui link cards ">
+{% for i in tavalud %}
+{% if i.birthday|date:'d.m' == dates  %}
+
+<div class="card">
+  <div class="image">
+    <img src="{{i.pic.url}}">
+  </div>
+  <div class="content">
+    <div class="header">{{i.l_name}} {{i.f_name}} {{i.full_name}}</div>
+    <div class="meta">
+      <a></a>
+    </div>
+    <div class="description text-danger font-weight-bold">
+      <i class="birthday cake icon"></i>
+      Tavallud kuningiz muborak bo'lsin!
+    </div>
+  </div>
+  <div class="extra content">
+    <span class="right floated">
+      {{i.birthday|date:'d.m.Y'}}
+    </span>
+    <span>
+      <i class="user icon"></i>
+      
+    </span>
+  </div>
 </div>
+
+
+
+
+
+{% endif %}
+{% endfor %}
+</div>   
+
+
+
+
+
     
