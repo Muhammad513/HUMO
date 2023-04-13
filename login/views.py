@@ -133,4 +133,4 @@ def gallaform(request):
             form.save()
             return redirect('gallaform')
     context={'form':form}
-    return render(request,'form/dmkform.html',context)    
+    return render(request,'form/yukhati.html',context)    
