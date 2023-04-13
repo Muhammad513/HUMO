@@ -12,5 +12,6 @@ urlpatterns = [
     path('reestr/',reestr,name='reestr'),
     path('kadr/',kadr,name='kadr'),
     path('tavalud/',tavalud,name='tavalud'),
+    path('adminalla/',gallaform,name='gallaform'),
 
 ]

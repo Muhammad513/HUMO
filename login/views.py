@@ -2,11 +2,14 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .form import ProfileForm,NaryadForm
+from login.form import*
 from .models import*
 from .function import*
 from homes.models import*
 from django.forms import formset_factory,modelformset_factory
 from datetime import datetime
+from .form import*
+from login.form import*
 
 def loginPage(request):
     if request.method=="POST":
@@ -118,3 +121,15 @@ def tavalud(request):
     context={"tavalud":tavalud,"dates":dates}
     
     return render(request,'kadr/tavalud.html',context)        
+
+
+def gallaform(request):
+
+    form=Gallaform()
+    if request.method == "POST":
+        form=Gallaform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('gallaform')
+    context={'form':form}
+    return render(request,'form/dmkform.html',context)    

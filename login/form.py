@@ -1,9 +1,11 @@
 from .models import*
+from homes.models import*
 from django import forms
 import datetime
 from .views import*
 
-
+x=datetime.datetime.now()
+date=x.strftime("%Y-%m-%d")
 
 class ProfileForm(forms.ModelForm):
     
@@ -29,3 +31,13 @@ class NaryadForm(forms.ModelForm):
         
 
   
+class Gallaform(forms.ModelForm):
+    
+    
+    class Meta:
+        model=Galla
+        fields=('date','yuk_num','brigada','ombor','yuk_num','tr_marka','tr_num','tr_name')
+        widgets={
+            'yuk_num':forms.TextInput(attrs={'type':'number'}),
+            'date':forms.TextInput(attrs={'type':'date','value':date}),
+        }
