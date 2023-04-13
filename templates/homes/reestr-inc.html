@@ -26,9 +26,9 @@
         <td>{{i.tr_marka}}</td>
         <td>{{i.tr_num}}</td>
         <td>{{i.tr_name}}</td>
-        <td>{{i.brutto}}</td>
-        <td>{{i.tara}}</td>
-        <td>{{i.sofVazn}}</td>
+        <td>{{i.brutto|default_if_none:"0"}}</td>
+        <td>{{i.tara|default_if_none:"0"}}</td>
+        <td>{{i.sofVazn|default_if_none:"0"}}</td>
         {% if i.ombor__name == 'DMK-1' %}
         <td><i class="circle icon text-warning pr-2 "></i>{{i.ombor__name}}</td>
         {% elif i.ombor__name == 'DMK-2'  %}

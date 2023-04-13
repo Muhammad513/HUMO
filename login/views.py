@@ -129,6 +129,7 @@ def gallaform(request):
     if request.method == "POST":
         form=Gallaform(request.POST)
         if form.is_valid():
+            print(form)
             form.save()
             return redirect('gallaform')
     context={'form':form}
