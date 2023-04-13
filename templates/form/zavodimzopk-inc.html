@@ -1,0 +1,83 @@
+<form class="ui form" method="post">
+    {% csrf_token %}
+    <h4 class="ui dividing header">Бригада малумотномаси</h4>
+    <div class="two fields">
+      <div class="required field">
+        <label>САНА</label>
+        <div class="ui icon input">
+            <input type="text" value="{{imzo.date|date:'d.m.Y'}}" disabled>
+        </div>
+      </div>
+      <div class="required field">
+        <label>Бригада №</label>
+        <div class="ui icon input">
+            <input type="text" value="{{imzo.brigada}}" disabled>
+        </div>
+      </div>
+    </div>
+    <h4 class="ui dividing header">Юк хакида маълумот</h4>
+    <div class="three fields">
+      <div class="required field">
+        <label>Юк хати №</label>
+        <div class="ui icon input">
+            <input type="text" value="{{imzo.yuk_num}}" disabled>
+          
+        </div>
+      </div>
+      <div class="required field">
+        <label>Транспорт маркаси</label>
+        <div class="ui icon input">
+            <input type="text" value="{{imzo.tr_marka}}" disabled>
+        </div>
+      </div>
+      <div class="required field">
+        <label>Транспорт раками</label>
+        <div class="ui icon input">
+            <input type="text" value="{{imzo.tr_num}}" disabled>
+        </div>
+      </div>
+      <div class="required field">
+        <label>Юк ташувчи Ф.И.О</label>
+        <div class="ui icon input">
+            <input type="text" value="{{imzo.tr_name}}" disabled>
+        </div>
+      </div>
+     
+    </div>
+    <h4 class="ui dividing header">Омбор хакида маълумот</h4>
+    <div class="ui form">
+      <div class="field">
+        <label>Омбор</label>
+        <input type="text" value="{{imzo.ombor}}" disabled>
+      </div>
+    </div>
+    <h4 class="ui dividing header">Юкни Кабул килиш </h4>
+    <div class="two fields">
+      <div class="required field">
+        <label>Брутто</label>
+        <div class="ui icon input">
+            {{form.brutto}}
+        </div>
+      </div>
+      <div class="required field">
+        <label>Тарра</label>
+        <div class="ui icon input">
+            {{form.tara}}
+        </div>
+      </div>
+      
+    </div>
+    <p class="text-danger font-weight-bold">Шу маълумотлар тугрилигини тасдиклайман</p>
+    <div class="field">
+        <div class="ui checkbox">
+          {{form.imzo}}
+          <label>Имзолаш</label>
+        </div>
+    </div>
+    
+  
+    
+
+      
+    <button type="submit" class="btn btn-primary btn-md btn-block mt-5">Ю Б О Р И Ш . . </button>
+  </form>

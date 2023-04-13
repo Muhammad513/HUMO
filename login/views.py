@@ -2,14 +2,12 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .form import ProfileForm,NaryadForm
-from login.form import*
 from .models import*
 from .function import*
 from homes.models import*
 from django.forms import formset_factory,modelformset_factory
 from datetime import datetime
-from .form import*
-from login.form import*
+from login.form import Gallaform,Gallaimzo
 
 def loginPage(request):
     if request.method=="POST":
@@ -100,7 +98,7 @@ def ombor(request):
     return render(request,'homes/dmk.html',context)
 
 def reestr(request):
-    res=Galla.objects.all().order_by('-date').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
+    res=Galla.objects.all().order_by('-id').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
     context={'res':res}
     return render(request,'homes/restr.html',context)    
 
@@ -134,3 +132,26 @@ def gallaform(request):
             return redirect('gallaform')
     context={'form':form}
     return render(request,'form/yukhati.html',context)    
+
+
+
+def zavodimzo(request):
+    zavod=Galla.objects.filter(ombor__name="ZAVOD",imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
+    context={'zavod':zavod}
+    return render(request,'form/zavodimzo.html',context)    
+
+def zavodimzopk(request,pk):
+    imzo=Galla.objects.get(id=pk)
+    form=Gallaimzo(instance=imzo)
+    
+    if request.method == "POST":
+        form=Gallaimzo(request.POST,instance=imzo)
+        if form.is_valid():
+            form.save()
+            return redirect('zavodimzo')
+    
+    
+    
+    
+    context={"form":form,"imzo":imzo}
+    return render(request,'form/zavodimzopk.html',context)    

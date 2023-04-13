@@ -41,3 +41,18 @@ class Gallaform(forms.ModelForm):
             'yuk_num':forms.TextInput(attrs={'type':'number'}),
             'date':forms.TextInput(attrs={'type':'date','value':date}),
         }
+
+class Gallaimzo(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['brutto'].required = True
+        self.fields['tara'].required = True
+        self.fields['imzo'].required = True
+
+
+
+    class Meta:
+        model=Galla
+        fields=('imzo','brutto',"tara")
+        
+        

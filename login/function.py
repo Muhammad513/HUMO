@@ -34,7 +34,7 @@ def birkunda_s(obj,num_hudud,date):
 
 def item_ombor_G(obj,ombor):
     result=obj.objects.filter(name=ombor).annotate(
-                        sums=Sum(F('galla__sofVazn')/1000.000, output_field=FloatField()),
+                        sums=Sum(F('galla__sofVazn')/1000.000, output_field=FloatField(),filter=Q(galla__imzo=True)),
                         )
     
     result=result.values("sums",'reja',"sentner","name")                    

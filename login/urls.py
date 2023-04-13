@@ -13,5 +13,8 @@ urlpatterns = [
     path('kadr/',kadr,name='kadr'),
     path('tavalud/',tavalud,name='tavalud'),
     path('adminalla/',gallaform,name='gallaform'),
+    path('zavodimzo/',zavodimzo,name='zavodimzo'),
+    path('zavodimzo/<str:pk>/',zavodimzopk,name='zavodimzopk'),
+
 
 ]
