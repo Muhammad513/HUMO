@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody class="text-center">
-    {% for i in zavod %}
+    {% for i in dmk %}
     <tr>
         <td>{{forloop.counter}}</td>
         <td>{{i.date|date:"d.m.Y"}}</td>
@@ -24,7 +24,7 @@
         <td>{{i.tr_name}}</td>
         <td><i class="circle icon text-danger pr-2 "></i>{{i.ombor__name}}</td>
         <td class="text-center">
-            <a href="{% url 'zavodimzopk' i.id %}">
+            <a href="{% url 'dmkimzopk' i.id %}">
                 <div class="compact ui button mini green">
                     имзолаш
                   </div>

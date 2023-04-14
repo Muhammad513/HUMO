@@ -1,0 +1,30 @@
+{% extends 'homes/dashboard.html' %}
+{% block content %}
+<main class="app-content bg-warning">
+    <div class="app-title" style="background-color: gold;">
+      <div>
+        <h1><i class="fa fa-th-list pr-2"></i>ГАЛЛА-2023
+        <p>ГАЛЛА-2023&nbsp;&nbsp;&nbsp;Корхона обори буйича Юк хатлари</p>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-md-12">
+        <div class="tile" >
+          <div class="tile-body">
+            <div class="table-responsive">
+              
+               {% include 'form/zavodimzopk-inc.html' %}
+  
+  
+  
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}

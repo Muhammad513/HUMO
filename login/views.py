@@ -127,7 +127,6 @@ def gallaform(request):
     if request.method == "POST":
         form=Gallaform(request.POST)
         if form.is_valid():
-            print(form)
             form.save()
             return redirect('gallaform')
     context={'form':form}
@@ -155,3 +154,25 @@ def zavodimzopk(request,pk):
     
     context={"form":form,"imzo":imzo}
     return render(request,'form/zavodimzopk.html',context)    
+#------------------------------------------------------------------------------------------------
+
+def dmkimzo(request):
+    dmk=Galla.objects.filter(ombor__name__in=['DMK-1',"DMK-2"],imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
+    context={'dmk':dmk}
+    return render(request,'form/dmkimzo.html',context)    
+
+def dmkimzopk(request,pk):
+    imzo=Galla.objects.get(id=pk)
+    form=Gallaimzo(instance=imzo)
+    
+    if request.method == "POST":
+        form=Gallaimzo(request.POST,instance=imzo)
+        if form.is_valid():
+            form.save()
+            return redirect('dmkimzo')
+    
+    
+    
+    
+    context={"form":form,"imzo":imzo}
+    return render(request,'form/dmkimzopk.html',context)    

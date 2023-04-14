@@ -103,5 +103,5 @@ document.getElementById('psumg19').innerHTML=(psum1+psum7+psum13).toLocaleString
 document.getElementById('psumg20').innerHTML=(psum2+psum8+psum14).toLocaleString()
 document.getElementById('psumg21').innerHTML=(psum3+psum9+psum15).toLocaleString()
 document.getElementById('psumg22').innerHTML=(psum4+psum10+psum16).toLocaleString()
-document.getElementById('psumg23').innerHTML=((psum4+psum11+psum18)/(psum1+psum8+psum15)*10).toLocaleString()
-document.getElementById('psumg24').innerHTML=((psum4+psum11+psum18)/(psum2+psum9+psum16)*100).toLocaleString()
+document.getElementById('psumg23').innerHTML=((psum4+psum10+psum16)/(psum1+psum7+psum13)*10).toLocaleString()
+document.getElementById('psumg24').innerHTML=((psum4+psum10+psum16)/(psum2+psum8+psum14)*100).toLocaleString()

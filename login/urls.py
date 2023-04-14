@@ -15,6 +15,8 @@ urlpatterns = [
     path('adminalla/',gallaform,name='gallaform'),
     path('zavodimzo/',zavodimzo,name='zavodimzo'),
     path('zavodimzo/<str:pk>/',zavodimzopk,name='zavodimzopk'),
+     path('dmkimzo/',dmkimzo,name='dmkimzo'),
+    path('dmkimzo/<str:pk>/',dmkimzopk,name='dmkimzopk'),
 
 
 ]
