@@ -168,6 +168,8 @@ def dmkimzopk(request,pk):
     context={"form":form,"imzo":imzo}
     return render(request,'form/dmkimzopk.html',context)    
 
+
+
 def error_404_view(request,exception):
     
     return render(request, '404/404.html')
