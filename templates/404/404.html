@@ -1,21 +1,12 @@
 {% extends 'homes/dashboard.html' %}
-
 {% block content %}
-{% extends 'homes/dashboard.html' %}
-{% block content %}
-<main class="app-content bg-warning">
-    <div class="app-title" style="background-color: gold;">
-        <div class="page-error tile">
-            <h2 class="text-danger"><i class="fa fa-exclamation-circle"></i> {{user.first_name}} {{user.last_name}}</h2>
-            <h6 class="text-danger">Бу сахифа сиз учун блокланган</h6>
-            <p class="pt-5"><a class="btn btn-primary" href="{% url 'home' %}">Бош сахифага кайтиш</a></p>
-          </div>
-    </div>
-  </main>
-
-{% endblock %}
-{% block js %}
-
+<main class="app-content">
+  <div class="page-error tile">
+    <h2 class="text-danger"><i class="fa fa-exclamation-circle"></i> {{user.first_name}} {{user.last_name}}</h2>
+    <h6 class="text-danger">Бу сахифа сиз учун блокланган</h6>
+    <p class="pt-5"><a class="btn btn-primary" href="{% url 'home' %}">Бош сахифага кайтиш</a></p>
+  </div>
+</main>
 {% endblock %}
 
 

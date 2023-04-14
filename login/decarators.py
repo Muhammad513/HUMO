@@ -1,13 +1,16 @@
-from django.http import Http404
+from django.http import HttpResponse
+from django.shortcuts import render
 
-def check_user_able_to_see_page(*groups):
+def allowed_users(allowed_roles=[]):
+    def decarator(view_func):
+        def wrapper_func(request,*args,**kwargs):
+            group=None
+            if request.user.groups.exists():
+                group=request.user.groups.all()[0].name
 
-    def decorator(function):
-        def wrapper(request, *args, **kwargs):
-            if request.user.groups.filter(name__in=groups).exists():
-                return function(request, *args, **kwargs)
-            raise Http404("SIZNING STATUSIZNGIZ BU SAHIFGA O'TISH UCHUN ")
-
-        return wrapper
-
-    return decorator
+            if group in allowed_roles:
+                return view_func(request,*args,**kwargs)
+            else:
+                return render(request,'404/404.html')
+        return wrapper_func
+    return decarator
