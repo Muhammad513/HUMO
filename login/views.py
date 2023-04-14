@@ -8,6 +8,7 @@ from homes.models import*
 from django.forms import formset_factory,modelformset_factory
 from datetime import datetime
 from login.form import Gallaform,Gallaimzo
+from .decarators import*
 
 def loginPage(request):
     if request.method=="POST":
@@ -120,7 +121,7 @@ def tavalud(request):
     
     return render(request,'kadr/tavalud.html',context)        
 
-
+@check_user_able_to_see_page("PTM")
 def gallaform(request):
 
     form=Gallaform()
@@ -132,47 +133,42 @@ def gallaform(request):
     context={'form':form}
     return render(request,'form/yukhati.html',context)    
 
-
-
+@check_user_able_to_see_page("PTM")
 def zavodimzo(request):
     zavod=Galla.objects.filter(ombor__name="ZAVOD",imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
     context={'zavod':zavod}
     return render(request,'form/zavodimzo.html',context)    
 
+@check_user_able_to_see_page("PTM")
 def zavodimzopk(request,pk):
     imzo=Galla.objects.get(id=pk)
     form=Gallaimzo(instance=imzo)
-    
     if request.method == "POST":
         form=Gallaimzo(request.POST,instance=imzo)
         if form.is_valid():
             form.save()
             return redirect('zavodimzo')
-    
-    
-    
-    
     context={"form":form,"imzo":imzo}
     return render(request,'form/zavodimzopk.html',context)    
 #------------------------------------------------------------------------------------------------
-
+@check_user_able_to_see_page("PTM")
 def dmkimzo(request):
     dmk=Galla.objects.filter(ombor__name__in=['DMK-1',"DMK-2"],imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
     context={'dmk':dmk}
     return render(request,'form/dmkimzo.html',context)    
 
+@check_user_able_to_see_page("PTM")
 def dmkimzopk(request,pk):
     imzo=Galla.objects.get(id=pk)
     form=Gallaimzo(instance=imzo)
-    
     if request.method == "POST":
         form=Gallaimzo(request.POST,instance=imzo)
         if form.is_valid():
             form.save()
             return redirect('dmkimzo')
-    
-    
-    
-    
     context={"form":form,"imzo":imzo}
     return render(request,'form/dmkimzopk.html',context)    
+
+def error_404_view(request,exception):
+    
+    return render(request, '404/404.html')
