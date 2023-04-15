@@ -175,6 +175,10 @@ def dmkimzopk(request,pk):
 
 
 
-def error_404_view(request,exception):
+def ishxaqi(request):
     
     return render(request, '404/404.html')
+
+def plastik(request):
+    
+    return render(request, 'ishxaqi/plastik.html')    

@@ -92,12 +92,36 @@ class Hodim(models.Model):
     birthday=models.DateField()
     jshir=models.CharField(max_length=14)
     pasport=models.CharField(max_length=9,null=True,blank=True)
+    karta=models.CharField(max_length=16,null=True,blank=True)
+    mudati=models.CharField(max_length=5,null=True,blank=True)
     pic=models.ImageField(upload_to=get_image_path,default='default/avatar.png')
 
     def __str__(self):
         return f'{self.l_name }{self.f_name }{self.full_name}'
     
 
-    def year(self):
-        age=datetime.now()-self.birthday
-        return age
+class Pay(models.Model):
+    staff=models.ForeignKey('Hodim',on_delete=models.PROTECT)
+    oy=models.ForeignKey('Month',on_delete=models.PROTECT)
+    oylik=models.FloatField(default=0)
+    soliq=models.FloatField(default=0)
+    inps=models.FloatField(default=0)
+    aliment=models.FloatField(default=0)
+    boshqa=models.FloatField(default=0)
+    qoldiq=models.FloatField(null=True,blank=True)
+    def save(self,*args,**kwargs):
+        self.soliq=self.oylik*0.119
+        self.inps=self.oylik*0.001
+        self.qoldiq=self.oylik-self.soliq-self.inps-self.aliment-self.boshqa
+        super().save(*args,**kwargs)
+
+    def __str__(self):
+        return str(self.staff)
+
+
+class Month(models.Model):
+    yil=models.CharField(max_length=20)
+    oy=models.CharField(max_length=20)
+
+    def __str__(self):
+        return f'{self.yil } ,{self.oy }'

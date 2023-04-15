@@ -18,4 +18,4 @@ admin.site.register(Hodim,HodimAdmin)
 
 
 
-admin.site.register([Hudud,Massiv,OmborG,Lavozim,Bolim])
+admin.site.register([Hudud,Massiv,OmborG,Lavozim,Bolim,Pay,Month])

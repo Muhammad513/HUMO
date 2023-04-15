@@ -17,7 +17,9 @@ urlpatterns = [
     path('zavodimzo/<str:pk>/',zavodimzopk,name='zavodimzopk'),
     path('dmkimzo/',dmkimzo,name='dmkimzo'),
     path('dmkimzo/<str:pk>/',dmkimzopk,name='dmkimzopk'),
-   
+    path('ishxaqi/',ishxaqi,name='ishxaqi'),
+    path('plastik/',plastik,name='plastik'),
+    
 
 
 ]
