@@ -182,3 +182,8 @@ def ishxaqi(request):
 def plastik(request):
     
     return render(request, 'ishxaqi/plastik.html')    
+
+
+def reg(request):
+    
+    return render(request, 'login/reg.html')        

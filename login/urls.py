@@ -5,6 +5,7 @@ from .views import*
 urlpatterns = [
     path('',loginPage,name='login'),
     path('logout/',logoutUser,name='logout'),
+    path('reg/',reg,name='reg'),
     path('setting',setting,name='setting'),
     path('galla/',galla,name='galla'),
     path('paxta/',paxta,name='paxta'),
@@ -19,6 +20,7 @@ urlpatterns = [
     path('dmkimzo/<str:pk>/',dmkimzopk,name='dmkimzopk'),
     path('ishxaqi/',ishxaqi,name='ishxaqi'),
     path('plastik/',plastik,name='plastik'),
+
     
 
 
