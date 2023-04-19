@@ -55,4 +55,11 @@ class Gallaimzo(forms.ModelForm):
         model=Galla
         fields=('imzo','brutto',"tara")
         
-        
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+
+class RegistrForm(UserCreationForm):
+    class Meta:
+        model=User
+        fields=['username','password1','password2']

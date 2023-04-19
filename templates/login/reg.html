@@ -13,7 +13,7 @@
    <title>Ro'yxatdan o'tish</title>
 </head>
 <body style="background-image: url('https://images.alphacoders.com/928/thumb-1920-928999.jpg'); background-size:cover;">
-    <form id="accesspanel" class="" method="post">
+    <form id="accesspanel" method="post">
         <div class="ui bottom right attached label mini black border">
             <p>
                 <a href="{% url 'login' %}" class="link-danger link-offset-3 link-underline-opacity-100 link-underline-opacity-100-hover">T&nbsp;I&nbsp;Z&nbsp;I&nbsp;M&nbsp;G&nbsp;A&nbsp;&nbsp; K&nbsp;R&nbsp;I&nbsp;SH&nbsp;</a>
@@ -27,34 +27,23 @@
         <div class="ui form mini">
             <p>
                 <div class="required field" >
-                <label  style="color: gold;">Pasport seriya</label>
-                    <input type="text" placeholder="AC">
-                </div>
-            </p>
-            <p>
-                <div class="required field" >
-                <label  style="color: gold;">Pasport raqam</label>
-                    <input type="text" placeholder="1234567">
-                </div>
-            </p>
-            <p>
-                <div class="required field" >
                 <label  style="color: gold;">login</label>
-                    <input type="text" placeholder="ism">
+                    {{form.username}}
                 </div>
             </p>
             <p>
                 <div class="required field" >
                 <label  style="color: gold;">password1</label>
-                    <input type="password" placeholder="123456">
+                    {{form.password1}}
                 </div>
             </p>
             <p>
                 <div class="required field" >
                 <label  style="color: gold;">password2</label>
-                    <input type="password" placeholder="123456">
+                    {{form.password2}}
                 </div>
             </p>
+            {{form.errors}}
         </div>
         
         <div style="text-align: center;">

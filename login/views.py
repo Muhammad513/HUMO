@@ -182,8 +182,16 @@ def ishxaqi(request):
 def plastik(request):
     
     return render(request, 'ishxaqi/plastik.html')    
-
+from .form import RegistrForm
 
 def reg(request):
+    form = RegistrForm()
+    if request.method == "POST":
+        form=RegistrForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context={"form":form}
     
-    return render(request, 'login/reg.html')        
+
+    return render(request, 'login/reg.html',context)        
