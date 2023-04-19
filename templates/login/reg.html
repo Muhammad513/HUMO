@@ -10,31 +10,53 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     
     <link type="text/css" rel="stylesheet" href="{% static 'css/reg.css' %}">
-   <title>Document</title>
+   <title>Ro'yxatdan o'tish</title>
 </head>
 <body style="background-image: url('https://images.alphacoders.com/928/thumb-1920-928999.jpg'); background-size:cover;">
-    <form id="accesspanel" method="post">
-        <div class="ui bottom right attached label mini black border"><p><a href="{% url 'login' %}" class="link-success link-offset-3 link-underline-opacity-100 link-underline-opacity-100-hover">Ro'yxatdan o'tish</a></p></div>
+    <form id="accesspanel" class="" method="post">
+        <div class="ui bottom right attached label mini black border">
+            <p>
+                <a href="{% url 'login' %}" class="link-danger link-offset-3 link-underline-opacity-100 link-underline-opacity-100-hover">T&nbsp;I&nbsp;Z&nbsp;I&nbsp;M&nbsp;G&nbsp;A&nbsp;&nbsp; K&nbsp;R&nbsp;I&nbsp;SH&nbsp;</a>
+            </p>
+        </div>
       {% csrf_token %}
-      <h1 id="litheader"><i class='fas fa-tractor blue-color'></i>Ro'xatdan o'tish</h1>
+      <h1 id="litheader"><i class='fas fa-user blue-color'></i>Ro'xatdan o'tish</h1>
       <p style="text-align: center;"><span id="messages" style="color: aliceblue;">{{message}}</span></p>
       
       <div class="inset">
-        <p>
-          <input type="text" name="username" id="email" placeholder="Pasport seriya">
-        </p>
-        <p>
-            <input type="text" name="username" id="email" placeholder="Pasport raqam">
-          </p>
-          <p>
-            <input type="text" name="username" id="email" placeholder="login">
-          </p>
-          <p>
-            <input type="text" name="username" id="email" placeholder="pasword">
-          </p>
-        <p>
-          <input type="password" name="password" id="password" placeholder="pasword">
-        </p>
+        <div class="ui form mini">
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">Pasport seriya</label>
+                    <input type="text" placeholder="AC">
+                </div>
+            </p>
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">Pasport raqam</label>
+                    <input type="text" placeholder="1234567">
+                </div>
+            </p>
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">login</label>
+                    <input type="text" placeholder="ism">
+                </div>
+            </p>
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">password1</label>
+                    <input type="password" placeholder="123456">
+                </div>
+            </p>
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">password2</label>
+                    <input type="password" placeholder="123456">
+                </div>
+            </p>
+        </div>
+        
         <div style="text-align: center;">
                 
         </div>
@@ -45,6 +67,7 @@
         <input type="submit" name="Login" id="go" value="R O' X A T D A N   O' T I SH">
       </p>
      </form>
+     
 </body>
 </html>
 
