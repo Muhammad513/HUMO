@@ -190,7 +190,7 @@ def reg(request):
         form=RegistrForm(request.POST)
         if form.is_valid():
             form.save()
-
+    
     context={"form":form}
     
 

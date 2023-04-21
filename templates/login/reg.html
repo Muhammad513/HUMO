@@ -13,16 +13,26 @@
    <title>Ro'yxatdan o'tish</title>
 </head>
 <body style="background-image: url('https://images.alphacoders.com/928/thumb-1920-928999.jpg'); background-size:cover;">
+    
     <form id="accesspanel" method="post">
+                {% for field,errors in form.errors.items %}
+                <p style="line-height: 18px; font-size: 20px;" class="p-0 m-0 text-danger">{{field}}!!</p>
+                
+                {% for error in errors %}
+                <p style="line-height: 14px;" class="p-0 m-0 text-danger">{{error}}!!</p>
+                {% endfor %}
+                {% endfor %}
         <div class="ui bottom right attached label mini black border">
             <p>
                 <a href="{% url 'login' %}" class="link-danger link-offset-3 link-underline-opacity-100 link-underline-opacity-100-hover">T&nbsp;I&nbsp;Z&nbsp;I&nbsp;M&nbsp;G&nbsp;A&nbsp;&nbsp; K&nbsp;R&nbsp;I&nbsp;SH&nbsp;</a>
             </p>
         </div>
+        
       {% csrf_token %}
       <h1 id="litheader"><i class='fas fa-user blue-color'></i>Ro'xatdan o'tish</h1>
       <p style="text-align: center;"><span id="messages" style="color: aliceblue;">{{message}}</span></p>
-      
+                
+            
       <div class="inset">
         <div class="ui form mini">
             <p>
@@ -43,7 +53,8 @@
                     {{form.password2}}
                 </div>
             </p>
-            {{form.errors}}
+            
+              
         </div>
         
         <div style="text-align: center;">
