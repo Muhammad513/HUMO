@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .form import ProfileForm,NaryadForm
+from .form import ProfileForm
 from .models import*
 from .function import*
 from homes.models import*
@@ -10,6 +10,8 @@ from datetime import datetime
 from login.form import Gallaform,Gallaimzo
 from .decarators import*
 from django.contrib.auth.decorators import login_required
+
+
 def loginPage(request):
     if request.method=="POST":
         username=request.POST["username"]
@@ -20,6 +22,7 @@ def loginPage(request):
             return redirect("home")
         else:
             messages.info(request,"login ёки парол нотугри")    
+    print(User.objects.all().values())
     return render(request,"login/login.html")
 
 

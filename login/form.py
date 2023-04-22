@@ -23,14 +23,6 @@ class ProfileForm(forms.ModelForm):
             return photo
 
 
-class NaryadForm(forms.ModelForm):
-    
-    class Meta:
-        model=Naryad
-        fields='__all__'    
-        
-
-  
 class Gallaform(forms.ModelForm):
     
     

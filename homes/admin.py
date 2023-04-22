@@ -10,7 +10,7 @@ class GallaAdmin(admin.ModelAdmin):
 
 class HodimAdmin(admin.ModelAdmin):
     list_display=('f_name','l_name','full_name','bolim','lavozim','birthday','jshir','pasport')
-
+    search_fields = ['f_name']
 
 admin.site.register(Galla,GallaAdmin)
 admin.site.register(GBrigada,GbrigadaAdmin)

@@ -6,10 +6,9 @@ from .models import*
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('id','user','shtat')
+    list_display = ('id','user')
 
-
+    
 
 admin.site.register(Profile,ProfileAdmin)    
 
-admin.site.register([Shtat,Bolim,Fizlitsa,Narxnoma,Oylar,Qabul,Naryad])
