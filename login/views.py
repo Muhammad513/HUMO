@@ -192,9 +192,14 @@ def reg(request):
     if request.method == "POST":
         form=RegistrForm(request.POST)
         if form.is_valid():
-            form.save()
-    
-    context={"form":form}
+            user=form.save(commit=False)
+            user.save()
+            login(request,user)
+            messages.success(request,"muvaffaqiyatli ro'xatdan o'tingiz")
+            return redirect('setting')
+        else:
+            messages.error(request,'Parametrlarni xato berdingiz')
+    context={"form":form,}
     
 
     return render(request, 'login/reg.html',context)        

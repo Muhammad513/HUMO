@@ -12,8 +12,8 @@ from django.contrib.auth.models import User
 def create_profile(sender,instance,created,**kwargs):
     user=instance
     if created:
-        Profile.objects.create(user=user)
-
+        Profile.objects.create(user=user,firs_name=user.first_name,last_name=user.last_name)
+        
 
 
 @receiver(post_delete,sender=Profile)

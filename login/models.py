@@ -10,9 +10,9 @@ def get_image_path(instance,filename):
 
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
-    firs_name=models.CharField(max_length=20,blank=True,default='XXXX')
-    last_name=models.CharField(max_length=20,blank=True,default='XXXX')
-    pic=models.ImageField(upload_to=get_image_path,default='img/default.jpg')
+    firs_name=models.CharField(max_length=20,blank=True,default='ISM')
+    last_name=models.CharField(max_length=20,blank=True,default='FAMILYA')
+    pic=models.ImageField(upload_to=get_image_path,default='default/avatar.png')
     activate=models.BooleanField(default=False)
         
    

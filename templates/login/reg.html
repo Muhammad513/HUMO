@@ -15,13 +15,7 @@
 <body style="background-image: url('https://images.alphacoders.com/928/thumb-1920-928999.jpg'); background-size:cover;">
     
     <form id="accesspanel" method="post">
-                {% for field,errors in form.errors.items %}
-                <p style="line-height: 18px; font-size: 20px;" class="p-0 m-0 text-danger">{{field}}!!</p>
-                
-                {% for error in errors %}
-                <p style="line-height: 14px;" class="p-0 m-0 text-danger">{{error}}!!</p>
-                {% endfor %}
-                {% endfor %}
+               
         <div class="ui bottom right attached label mini black border">
             <p>
                 <a href="{% url 'login' %}" class="link-danger link-offset-3 link-underline-opacity-100 link-underline-opacity-100-hover">T&nbsp;I&nbsp;Z&nbsp;I&nbsp;M&nbsp;G&nbsp;A&nbsp;&nbsp; K&nbsp;R&nbsp;I&nbsp;SH&nbsp;</a>
@@ -30,11 +24,47 @@
         
       {% csrf_token %}
       <h1 id="litheader"><i class='fas fa-user blue-color'></i>Ro'xatdan o'tish</h1>
-      <p style="text-align: center;"><span id="messages" style="color: aliceblue;">{{message}}</span></p>
+      <p style="text-align: center;">
+        {% if messages %}
+        {% for message in messages %}
+        <span id="messages" style="color: red">
+            {{ message }}
+        </span>
+        {% endfor %}
+        {% endif %}
+      </p>  
+        <div class="ui list">
+            <div class="item">
+              {% for field,errors in form.errors.items %}
+              <div class="header text-center" style="color: red;">{{field}}</div>
+              {% for error in errors %}
+              <p class="text-center">{{error}}</p>
+              {% endfor %}
+              {% endfor %}
+               
+            </div>
+
+        </div>
+        
+        
                 
             
       <div class="inset">
         <div class="ui form mini">
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">Исмингиз</label>
+                    {{form.first_name}}
+                </div>
+            </p>
+            
+            <p>
+                <div class="required field" >
+                <label  style="color: gold;">Фамилянгиз</label>
+                    {{form.last_name}}
+                </div>
+            </p>
+            
             <p>
                 <div class="required field" >
                 <label  style="color: gold;">login</label>
