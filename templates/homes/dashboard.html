@@ -32,7 +32,7 @@
     <header class="app-header"><a class="app-header__logo bg-info" href="{% url 'home' %}">AGROMAX MCHJ</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
-
+      
       <ul class="app-nav">
         <li class="app-search">
           <input class="app-search__input" type="search" placeholder="Излаш ...">
@@ -76,12 +76,14 @@
       </div>
 
       <ul class="app-menu">
+        {% if request.user.profile.activate %}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-line-chart"></i><span class="app-menu__label">ХОСИЛ-2023</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{% url 'galla' %}"><i class="pr-2 fa fa-circle"></i>ГАЛЛА-2023</a></li>
             <li><a class="treeview-item" href="{% url 'paxta' %}"  rel="noopener"><i class="pr-2 fa fa-circle"></i>ПАХТА-2023</a></li>
           </ul>
         </li>
+        {% endif %}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card-o"></i><span class="app-menu__label">ХОДИМЛАР</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{% url 'kadr' %}"><i class="pr-2 fa fa-circle"></i>ХОДИМЛАР</a></li>
