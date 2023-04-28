@@ -14,8 +14,6 @@ class HodimAdmin(admin.ModelAdmin):
 
 admin.site.register(Galla,GallaAdmin)
 admin.site.register(GBrigada,GbrigadaAdmin)
-admin.site.register(Hodim,HodimAdmin)
 
 
-
-admin.site.register([Hudud,Massiv,OmborG,Lavozim,Bolim,Pay,Month])
+admin.site.register([Hudud,Massiv,OmborG])

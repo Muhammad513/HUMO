@@ -2,6 +2,12 @@ from django.db import models
 from .choices import tr_marka
 import os
 import datetime
+
+
+
+def get_image_path(instance,filename):
+    return os.path.join('Hodimlar', str(instance.id),filename)
+    
 class GBrigada(models.Model):
     br_num=models.CharField(max_length=2)
     massiv=models.ForeignKey('Massiv',on_delete=models.PROTECT)
@@ -66,62 +72,5 @@ class Hudud(models.Model):
     def __str__(self):
         return str(self.Agranom_full_name)
 
-class Bolim(models.Model):
-    bolim=models.CharField(max_length=30)
-
-    def __str__(self):
-        return str(self.bolim)
-
-
-
-class Lavozim(models.Model):
-    lavozim=models.CharField(max_length=30)    
-
-    def __str__(self):
-        return str(self.lavozim)
-
-def get_image_path(instance,filename):
-    return os.path.join('Hodimlar', str(instance.id),filename)
-    
 class Hodim(models.Model):
-    f_name=models.CharField(max_length=100)
-    l_name=models.CharField(max_length=100)
-    full_name=models.CharField(max_length=100)
-    bolim=models.ForeignKey('Bolim',on_delete=models.PROTECT,null=True,blank=True)
-    lavozim=models.ForeignKey('Lavozim',on_delete=models.PROTECT,null=True,blank=True)
-    birthday=models.DateField()
-    jshir=models.CharField(max_length=14)
-    pasport=models.CharField(max_length=9,null=True,blank=True)
-    karta=models.CharField(max_length=16,null=True,blank=True)
-    mudati=models.CharField(max_length=5,null=True,blank=True)
-    pic=models.ImageField(upload_to=get_image_path,default='default/avatar.png')
-
-    def __str__(self):
-        return f'{self.l_name }{self.f_name }{self.full_name}'
     
-
-class Pay(models.Model):
-    staff=models.ForeignKey('Hodim',on_delete=models.PROTECT)
-    oy=models.ForeignKey('Month',on_delete=models.PROTECT)
-    oylik=models.FloatField(default=0)
-    soliq=models.FloatField(default=0)
-    inps=models.FloatField(default=0)
-    aliment=models.FloatField(default=0)
-    boshqa=models.FloatField(default=0)
-    qoldiq=models.FloatField(null=True,blank=True)
-    def save(self,*args,**kwargs):
-        self.soliq=self.oylik*0.119
-        self.inps=self.oylik*0.001
-        self.qoldiq=self.oylik-self.soliq-self.inps-self.aliment-self.boshqa
-        super().save(*args,**kwargs)
-
-    def __str__(self):
-        return str(self.staff)
-
-
-class Month(models.Model):
-    yil=models.CharField(max_length=20)
-    oy=models.CharField(max_length=20)
-
-    def __str__(self):
-        return f'{self.yil } ,{self.oy }'
