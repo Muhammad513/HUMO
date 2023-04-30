@@ -8,12 +8,20 @@ class GbrigadaAdmin(admin.ModelAdmin):
 class GallaAdmin(admin.ModelAdmin):
     list_display=('date','brigada','sofVazn','ombor','yuk_num','tr_marka','tr_num','tr_name','imzo')
 
-class HodimAdmin(admin.ModelAdmin):
-    list_display=('f_name','l_name','full_name','bolim','lavozim','birthday','jshir','pasport')
-    search_fields = ['f_name']
 
 admin.site.register(Galla,GallaAdmin)
 admin.site.register(GBrigada,GbrigadaAdmin)
 
 
-admin.site.register([Hudud,Massiv,OmborG])
+admin.site.register([Hudud,Massiv,OmborG,Pasport,])
+
+from django_reverse_admin import ReverseModelAdmin
+
+class HodimAdmin(ReverseModelAdmin):
+    inline_type = 'stacked'
+    inline_reverse = [
+                      ('pasport', {'fields': ['seriya','raqami','jshir','data1','data2']}),
+                      ('card', {'fields': ['raqami','mudati']}),
+                      
+                      ]
+admin.site.register(Hodim, HodimAdmin)

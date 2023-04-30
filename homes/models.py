@@ -2,6 +2,7 @@ from django.db import models
 from .choices import tr_marka
 import os
 import datetime
+from login.models import Profile
 
 
 
@@ -73,4 +74,28 @@ class Hudud(models.Model):
         return str(self.Agranom_full_name)
 
 class Hodim(models.Model):
+    bolim=models.ForeignKey('Bolim',on_delete=models.PROTECT)
+    pasport=models.OneToOneField('Pasport',on_delete=models.PROTECT)
+    card=models.OneToOneField('Card',on_delete=models.PROTECT,null=True)
     
+class Fizlitsa(models.Model):
+    f_name=models.CharField(max_length=50)
+    l_name=models.CharField(max_length=50)
+    ful_name=models.CharField(max_length=50)    
+    birth=models.DateField()
+
+class Pasport(models.Model):
+    seriya=models.CharField(max_length=2)
+    raqami=models.CharField(max_length=9)
+    jshir=models.CharField(max_length=14)
+    data1=models.DateField()
+    data2=models.DateField()
+
+class Bolim(models.Model):
+    bolim=models.CharField(max_length=30)
+
+    def __str__(self) -> str:
+        return str(self.bolim)
+class Card(models.Model):
+    raqami=models.CharField(max_length=16)
+    mudati=models.CharField(max_length=7)    

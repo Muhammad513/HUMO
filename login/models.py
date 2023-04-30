@@ -15,4 +15,5 @@ class Profile(models.Model):
     pic=models.ImageField(upload_to=get_image_path,default='default/avatar.png')
     activate=models.BooleanField(default=False)
         
-   
+    def __str__(self) -> str:
+        return f'{self.firs_name} {self.last_name}'
