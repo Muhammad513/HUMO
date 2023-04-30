@@ -74,9 +74,18 @@ class Hudud(models.Model):
         return str(self.Agranom_full_name)
 
 class Hodim(models.Model):
+    fizlitsa=models.OneToOneField('Fizlitsa',on_delete=models.PROTECT,null=True)
     bolim=models.ForeignKey('Bolim',on_delete=models.PROTECT)
+    lavozim=models.ForeignKey('Lavozim',on_delete=models.PROTECT,null=True)
     pasport=models.OneToOneField('Pasport',on_delete=models.PROTECT)
     card=models.OneToOneField('Card',on_delete=models.PROTECT,null=True)
+    def __str__(self) -> str:
+        return f'{self.fizlitsa.f_name} {self.fizlitsa.l_name} {self.fizlitsa.ful_name}'
+
+class Lavozim(models.Model):
+    lavozim=models.CharField(max_length=50)
+    def __str__(self) -> str:
+        return str(self.lavozim)    
     
 class Fizlitsa(models.Model):
     f_name=models.CharField(max_length=50)

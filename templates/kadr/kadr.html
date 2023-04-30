@@ -2,19 +2,21 @@
     {% for i in kadr %}
     <div class="card">
       <div class="image">
-        <img src="{{i.pic.url}}">
+        <img src="{{request.user.profile.pic.url}}">
       </div>
       <div class="content">
-        <div class="header">{{i.l_name}} {{i.f_name}} {{i.full_name}}</div>
-        <div class="meta">
-          <a></a>
+        <div class="meta pb-2">
+          <p>{{i.bolim}}</p> 
         </div>
+        <div class="header">{{i.fizlitsa.f_name}} {{i.fizlitsa.l_name}} {{i.fizlitsa.ful_name}}</div>
+        
         <div class="description">
+          <p>{{i.lavozim}}</p>
         </div>
       </div>
       <div class="extra content">
         <span class="right floated">
-          {{i.birthday|date:'d.m.Y'}}
+        {{i.fizlitsa.birth|date:'d.m.Y'}}
         </span>
         <span>
           <i class="user icon"></i>

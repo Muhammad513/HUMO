@@ -13,13 +13,15 @@ admin.site.register(Galla,GallaAdmin)
 admin.site.register(GBrigada,GbrigadaAdmin)
 
 
-admin.site.register([Hudud,Massiv,OmborG,Pasport,])
+admin.site.register([Hudud,Massiv,OmborG,Pasport,Lavozim])
 
 from django_reverse_admin import ReverseModelAdmin
+
 
 class HodimAdmin(ReverseModelAdmin):
     inline_type = 'stacked'
     inline_reverse = [
+                      ('fizlitsa', {'fields': ['f_name','l_name','ful_name','birth']}),
                       ('pasport', {'fields': ['seriya','raqami','jshir','data1','data2']}),
                       ('card', {'fields': ['raqami','mudati']}),
                       
