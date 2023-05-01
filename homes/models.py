@@ -79,6 +79,7 @@ class Hodim(models.Model):
     lavozim=models.ForeignKey('Lavozim',on_delete=models.PROTECT,null=True)
     pasport=models.OneToOneField('Pasport',on_delete=models.PROTECT)
     card=models.OneToOneField('Card',on_delete=models.PROTECT,null=True)
+    hodim=models.OneToOneField('login.Profile',on_delete=models.PROTECT,null=True,blank=True)
     def __str__(self) -> str:
         return f'{self.fizlitsa.f_name} {self.fizlitsa.l_name} {self.fizlitsa.ful_name}'
 

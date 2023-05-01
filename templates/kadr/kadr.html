@@ -2,7 +2,11 @@
     {% for i in kadr %}
     <div class="card">
       <div class="image">
-        <img src="{{request.user.profile.pic.url}}">
+        {% if i.hodim.pic.url %}
+        <img src="{{i.hodim.pic.url}}">
+        {% else %}
+        <img src="/media/default/avatar.png">
+        {% endif %}
       </div>
       <div class="content">
         <div class="meta pb-2">
