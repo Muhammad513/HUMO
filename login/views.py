@@ -122,9 +122,11 @@ def kadr(request):
 @login_required(login_url='login')
 def tavalud(request):
     dates=datetime.now().strftime("%d.%m")
+    year=datetime.now().strftime("%Y")
+    
     tavalud=Hodim.objects.all()
 
-    context={"tavalud":tavalud,"dates":dates}
+    context={"tavalud":tavalud,"dates":dates,'year':year}
     return render(request,'kadr/tavalud.html',context)        
 
 
