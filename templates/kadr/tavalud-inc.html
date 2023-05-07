@@ -1,4 +1,4 @@
-
+{% load django_template_maths %}
 <div class="ui link cards ">
 {% for i in tavalud %}
 {% if i.fizlitsa.birth|date:'d.m' == dates  %}
@@ -18,17 +18,21 @@
     </div>
     <div class="description text-danger font-weight-bold">
       <i class="birthday cake icon"></i>
-      
       Tavallud kuningiz muborak bo'lsin!
     </div>
   </div>
   <div class="extra content">
-    <span class="right floated">
-      {{i.birthday|date:'d.m.Y'}}
+    <span class="right floated" style="color: blue;">
+      {{i.fizlitsa.birth|date:'d.m.Y'}}
     </span>
     <span>
-      <i class="user icon"></i>
       
+      <i class="user icon"></i>
+      <span class="text-info">
+      {% with firstname=i.fizlitsa.birth|date:'Y' %}
+      {{year|sub:firstname}}  yosh
+      {% endwith %}
+    </span>
     </span>
   </div>
 </div>

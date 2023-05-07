@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #app
     'login.apps.LoginConfig',
-    'homes.apps.HomesConfig'
+    'homes.apps.HomesConfig',
+    'django_template_maths'
 ]
 
 MIDDLEWARE = [

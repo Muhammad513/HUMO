@@ -114,8 +114,9 @@ def reestr(request):
 @login_required(login_url='login')
 def kadr(request):
     kadr=Hodim.objects.all().order_by('bolim')
+    year=datetime.now().strftime("%Y")
     
-    context={"kadr":kadr}
+    context={"kadr":kadr,'year':year}
     return render(request,'kadr/kadr-inc.html',context)        
 
 
@@ -123,9 +124,7 @@ def kadr(request):
 def tavalud(request):
     dates=datetime.now().strftime("%d.%m")
     year=datetime.now().strftime("%Y")
-    
     tavalud=Hodim.objects.all()
-
     context={"tavalud":tavalud,"dates":dates,'year':year}
     return render(request,'kadr/tavalud.html',context)        
 

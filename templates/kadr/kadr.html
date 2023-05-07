@@ -1,3 +1,5 @@
+{% load django_template_maths %}
+
 <div class="ui link cards ">
     {% for i in kadr %}
     <div class="card">
@@ -10,20 +12,25 @@
       </div>
       <div class="content">
         <div class="meta pb-2">
-          <p>{{i.bolim}}</p> 
+          <p class="text-info">{{i.bolim}}</p> 
         </div>
-        <div class="header">{{i.fizlitsa.f_name}} {{i.fizlitsa.l_name}} {{i.fizlitsa.ful_name}}</div>
+        <div class="header">{{i.fizlitsa.l_name}} {{i.fizlitsa.f_name}} {{i.fizlitsa.ful_name}}</div>
         
         <div class="description">
-          <p>{{i.lavozim}}</p>
+          <p class="text-info" >{{i.lavozim}}</p>
         </div>
       </div>
       <div class="extra content">
-        <span class="right floated">
+        <span class="right floated" style="color: blue;">
         {{i.fizlitsa.birth|date:'d.m.Y'}}
         </span>
         <span>
-          <i class="user icon"></i>
+          <i class="user icon text-info"></i>
+          <span class="text-info">
+            {% with firstname=i.fizlitsa.birth|date:'Y' %}
+            {{year|sub:firstname}}&nbsp;&nbsp;  yosh
+            {% endwith %}
+          </span>
         </span>
       </div>
     </div>

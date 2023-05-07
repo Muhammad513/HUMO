@@ -83,11 +83,7 @@ class Hodim(models.Model):
     def __str__(self) -> str:
         return f'{self.fizlitsa.f_name} {self.fizlitsa.l_name} {self.fizlitsa.ful_name}'
 
-    def old(self):
-        year=datetime.now().strftime("%Y")
-        birth=self.fizlitsa.birth-year
-        return birth
-
+    
 
 class Lavozim(models.Model):
     lavozim=models.CharField(max_length=50)
