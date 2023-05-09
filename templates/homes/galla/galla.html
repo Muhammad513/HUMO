@@ -22,14 +22,18 @@
         <div class="tile-body">
           <div class="d-flex flex-row-reverse bd-highlight">
             <div class="pl-1 bd-highlight">
+            <a href="{% url 'way' %}">
               <div class="ui label text-primary">
-                <i class="shipping icon"></i> {{imzolandi}}
-              </div>  
+                <i class="shipping icon"></i>{{imzolandi}}
+              </div>
+            </a>  
             </div>
             <div class="pl-1 bd-highlight">
+              <a href="{% url 'stop' %}">
               <div class="ui label text-danger">
                 <i class="shipping fast icon"></i> {{imzosiz}}
-              </div>  
+              </div>
+              </a>  
             </div>
           </div>
           

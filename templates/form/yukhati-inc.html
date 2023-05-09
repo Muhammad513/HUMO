@@ -1,5 +1,13 @@
 <div class="container">
     <form class="ui form" method="post">
+      {% for message in messages %}
+      <div class="ui positive message">
+        <i class="close icon"></i>
+        <div class="header">
+          {{message}}
+        </div>
+       </div>
+      {% endfor %}
       {% csrf_token %}
       <h4 class="ui dividing header">Бригада малумотномаси</h4>
       <div class="two fields">
@@ -63,4 +71,4 @@
   
   
   </div>
-  
+ 

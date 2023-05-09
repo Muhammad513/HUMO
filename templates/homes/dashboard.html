@@ -39,7 +39,7 @@
           <button class="app-search__button"><i class="fa fa-search"></i></button>
         </li>
         <!--Notification Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg" style="color: gold;"></i></a>
           <ul class="app-notification dropdown-menu dropdown-menu-right">
             <li class="app-notification__title">You have 4 new notifications.</li>
             <div class="app-notification__content">
@@ -55,7 +55,7 @@
           </ul>
         </li>
         <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg" style="color: gold;"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="{% url 'setting' %}"><i class="fa fa-cog fa-lg"></i>Созламалар</a></li>
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i>КАБИНЕТ</a></li>
@@ -77,19 +77,19 @@
 
       <ul class="app-menu">
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-line-chart"></i><span class="app-menu__label">ХОСИЛ-2023</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-line-chart" style="color: gold;"></i><span class="app-menu__label">ХОСИЛ-2023</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{% url 'galla' %}"><i class="pr-2 fa fa-circle"></i>ГАЛЛА-2023</a></li>
             <li><a class="treeview-item" href="{% url 'paxta' %}"  rel="noopener"><i class="pr-2 fa fa-circle"></i>ПАХТА-2023</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card-o"></i><span class="app-menu__label">ХОДИМЛАР</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card-o" style="color: gold;"></i><span class="app-menu__label">ХОДИМЛАР</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{% url 'kadr' %}"><i class="pr-2 fa fa-circle"></i>ХОДИМЛАР</a></li>
             <li><a class="treeview-item" href="{% url 'tavalud' %}"  rel="noopener"><i class="pr-2 fa fa-circle"></i>ТАВАЛУД КУН</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-credit-card "></i><span class="app-menu__label">Иш хакки</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-credit-card " style="color: gold;"></i><span class="app-menu__label">Иш хакки</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{% url 'ishxaqi' %}"><i class="pr-2 fa fa-circle text-info" ></i>Иш хакки</a></li>
             <li><a class="treeview-item" href="{% url 'plastik' %}"  rel="noopener"><i class="pr-2 fa fa-circle text-info"></i>Пластик карта </a></li>
@@ -110,6 +110,16 @@
     {% endblock %}
     {% block js %}
     {% endblock %}
+    <script>
+      $('.message .close')
+        .on('click', function() {
+          $(this)
+            .closest('.message')
+            .transition('fade')
+          ;
+        })
+      ;
+      </script>
     <script>
       $('select.dropdown')
   .dropdown()

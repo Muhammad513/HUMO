@@ -108,7 +108,15 @@ def ombor(request):
 def reestr(request):
     res=Galla.objects.all().order_by('-id').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
     context={'res':res}
-    return render(request,'homes/restr.html',context)    
+    return render(request,'homes/restr.html',context) 
+def way(request):
+    res=Galla.objects.filter(imzo=True).order_by('-id').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
+    context={'res':res}
+    return render(request,'homes/restr.html',context)
+def stop(request):
+    res=Galla.objects.filter(imzo=False).order_by('-id').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
+    context={'res':res}
+    return render(request,'homes/restr.html',context)   
 
 
 @login_required(login_url='login')
@@ -136,6 +144,10 @@ def gallaform(request):
         form=Gallaform(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request,"ЮК ХАТИ ЖУНАТИЛДИ")
+            return redirect('gallaform')
+        else:
+            messages.success(request,"ЮК ХАТИ ЖУНАТИЛДИ")
             return redirect('gallaform')
     context={'form':form}
     return render(request,'form/yukhati.html',context)    
@@ -155,6 +167,7 @@ def zavodimzopk(request,pk):
         form=Gallaimzo(request.POST,instance=imzo)
         if form.is_valid():
             form.save()
+            messages.success(request,"ЮК ХАТИ ЖУНАТИЛДИ")
             return redirect('zavodimzo')
     context={"form":form,"imzo":imzo}
     return render(request,'form/zavodimzopk.html',context)    
