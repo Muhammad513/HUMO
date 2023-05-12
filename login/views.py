@@ -193,8 +193,9 @@ def dmkimzopk(request,pk):
 
 
 def ishxaqi(request):
+
     
-    return render(request, '404/404.html')
+    return render(request, 'profile/profile.html')
 
 def plastik(request):
     
