@@ -196,9 +196,17 @@ def dmkimzopk(request,pk):
 
 
 def ishxaqi(request):
+    user=request.user.profile.id
+    hodims=Hodim.objects.get(hodim=user).id
+    pay=Pay.objects.get(hodim=hodims)
+    
+    
+    
+    
+    context={"pay":pay}
 
     
-    return render(request, 'profile/profile.html')
+    return render(request, 'profile/profile.html',context)
 
 def plastik(request):
     

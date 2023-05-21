@@ -6,37 +6,47 @@
 {% block content %}
 <main class="app-content bg-warning">
     <div class="app-title " style="background-color: gold;">
-        <div class="col-lg-4">
-            <div class="card-body">
-                <canvas id="myPieChart" width="130%" height="60"></canvas>
-            </div>
-        </div>
+        
+        <div class="row">
+            <div class="col-6">
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            </div>    
+        </div>    
     </div>
 </main>
 {% endblock %}
 {% block js  %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
+
 
 <script>
-    // Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
+window.onload = function() {
 
-// Pie Chart Example
-var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
-    datasets: [{
-      data: [100,20,30,70],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
-    }],
-  },
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "ИШ ХАККИ"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 150,
+		yValueFormatString: "##0.0\" сум\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: '{{pay.plastik}}', label: "Кулга тегиши"},
+			{y: '{{pay.soliq}}', label: "Солик"},
+			{y: '{{pay.ushlanma}}', label: "Ушланмалар"},
+			{y: '{{pay.qoshimcha}}', label: "Кушимча"},
+			
+		]
+	}]
 });
+chart.render();
 
+}
+ 
 </script>
-
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 
 {% endblock %}
 
