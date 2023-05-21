@@ -1,42 +1,57 @@
 {% extends 'homes/dashboard.html' %}
 {% load static %}
-    {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static  'css/profile.css' %}">
-    {% endblock %}
-    {% block content %}
-    <main class="app-content bg-warning">
-      <div class="app-title " style="background-color: gold;">
-        <div class="container">
-          <h1>Profil Image Upload 
-          </h1>
-          <div class="avatar-upload">
-              <div class="avatar-edit">
-                 {{form.pic}}
-                  <label for="imageUpload"></label>
-              </div>
-              <div class="avatar-preview">
-                  <div id="imagePreview">
-                    <img src="{{request.user.profile.pic.url}}" alt="">
-                  </div>
-              </div>
-          </div>
-      </div>
-      </div>
-    </main>   
-	
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    {% endblock %}
-    {% block js %}
-   
-    {% endblock %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+{% endblock %}
+{% block content %}
+
+
+<main class="app-content bg-warning">
+  <div class="app-title " style="background-color: gold;">
+    {% include 'homes/settings-inc.html' %}
+  </div>
+</main>
+
+
+
+
+{% endblock %}
+{% block js %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!--
 
 
@@ -55,4 +70,29 @@
         </div>
       </label>
     </div>
+
+
+ <div class="avatar-upload">
+              <div class="avatar-edit">
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload"></label>
+              </div>
+              <div class="avatar-preview">
+                  <div id="imagePreview" style="background-image: url('{{ request.user.profile.pic.url }}')">
+                    
+                  </div>
+              </div>
+          </div>
+      
+
+
+
+
+
+
+
+
+
+
+
     -->

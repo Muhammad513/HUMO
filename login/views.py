@@ -38,6 +38,9 @@ def logoutUser(request):
 def setting(request):
     user=request.user.profile.id
     profile=Profile.objects.get(id=user)
+    hodim=Hodim.objects.filter(hodim=profile.id).values('bolim__bolim',
+                                                        'pasport__seriya','pasport__raqami','lavozim__lavozim',
+                                                        "pasport__jshir",'pasport__data2','card__raqami','card__mudati')
     form=ProfileForm(instance=profile)
     if request.method == "POST":
         form=ProfileForm(request.POST,request.FILES,instance=profile)
@@ -46,7 +49,7 @@ def setting(request):
             form.save()
             return redirect('setting')
     
-    context={"form":form,"profile":profile}
+    context={"form":form,"profile":profile,"hodim":hodim}
     return render(request,'homes/setting.html',context)
 
 

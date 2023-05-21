@@ -1,0 +1,124 @@
+<div class="container-fluid px-4 mt-4">
+    <!-- Account page navigation-->
+    <nav class="nav nav-borders">
+        <a class="nav-link active ms-0" href="https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details" target="__blank">Profile</a>
+        <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-profile-billing-page" target="__blank">Billing</a>
+        <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-profile-security-page" target="__blank">Security</a>
+        <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-edit-notifications-page"  target="__blank">Notifications</a>
+    </nav>
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="avatar-upload">
+                            <div class="avatar-edit" >
+                                {{form.pic}}
+                                <label for="imageUpload"    ></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview" style="background-image: url('{{ request.user.profile.pic.url }}')">
+                              
+                                </div>
+                                <h4 class="pt-4">{{request.user.profile.firs_name}} {{request.user.profile.last_name}} </h4>
+                            </div>
+                        </div>
+                        <div class="card-body text-left">
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">First name</label>
+                                    {{form.last_name}}
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Last name</label>
+                                    {{form.firs_name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small font-italic text-muted mb-4"><button class="btn btn-primary float-right " type="submit">S&nbsp;a&nbsp;q&nbsp;l&nbsp;a&nbsp;sh</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
+                            
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{profile.last_name}}" disabled>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last name</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{profile.firs_name}}" disabled>
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            {% for info in hodim %}
+                            <div class="col-md-6 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">Bo'lim</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.bolim__bolim}}" disabled>
+                            </div>
+                            <div class="col-md-6 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">Lavozim</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.lavozim__lavozim}}" disabled>
+                            </div>
+                            <div class="col-md-3 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">Pasport seriya</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.pasport__seriya}}" disabled>
+                            </div>
+                            <div class="col-md-3 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">Pasport raqam</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.pasport__raqami}}" disabled>
+                            </div>
+                            <div class="col-md-3 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">JSHIR</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.pasport__jshir}}" disabled>
+                            </div>
+                            <div class="col-md-3 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">Amal qilish mudati</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.pasport__data2}}" disabled>
+                            </div>
+                            <div class="col-md-6 pt-2">
+                                <label class="small mb-1 text-danger" for="inputOrgName">Karta raqami</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.card__raqami}}" disabled>
+                            </div>
+                            <div class="col-md-6 pt-2 text-danger">
+                                <label class="small mb-1" for="inputOrgName">Amal qilish  mudati</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{info.card__mudati}}" disabled>
+                            </div>
+                            
+                            {% endfor %}
+                            <!-- Form Group (location)-->
+                            
+                        </div>
+                        <!-- Form Group (email address)-->
+                        
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="button" disabled>S&nbsp;a&nbsp;q&nbsp;l&nbsp;a&nbsp;sh</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
