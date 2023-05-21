@@ -80,6 +80,9 @@ class Hodim(models.Model):
     pasport=models.OneToOneField('Pasport',on_delete=models.PROTECT)
     card=models.OneToOneField('Card',on_delete=models.PROTECT,null=True)
     hodim=models.OneToOneField('login.Profile',on_delete=models.PROTECT,null=True,blank=True)
+   
+    
+    
     def __str__(self) -> str:
         return f'{self.fizlitsa.f_name} {self.fizlitsa.l_name} {self.fizlitsa.ful_name}'
 
@@ -111,3 +114,19 @@ class Bolim(models.Model):
 class Card(models.Model):
     raqami=models.CharField(max_length=16)
     mudati=models.CharField(max_length=7)    
+
+
+class Pay(models.Model):
+    date=models.DateField()
+    hodim=models.ForeignKey('Hodim',on_delete=models.PROTECT)
+    oylik=models.FloatField()
+    qoshimcha=models.FloatField(default=0)
+    ushlanma=models.FloatField(default=0)
+    soliq=models.FloatField(default=0)
+    plastik=models.FloatField(blank=True)
+    
+    def save(self,*args,**kwargs):
+        self.plastik=self.oylik+self.qoshimcha+self.ushlanma-self.soliq    
+        super().save(*args,**kwargs)
+
+   

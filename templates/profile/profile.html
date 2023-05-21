@@ -1,16 +1,46 @@
 {% extends 'homes/dashboard.html' %}
 {% load static %}
-    {% block css %}
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="{% static  'css/profile.css' %}">
-    {% endblock %}
-    {% block content %}
+{% block css %}
 
-	    {% endblock %}
-    {% block js %}
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    {% endblock %}
-    
+{% endblock %}
+{% block content %}
+<main class="app-content bg-warning">
+    <div class="app-title " style="background-color: gold;">
+        <div class="col-lg-4">
+            <div class="card-body">
+                <canvas id="myPieChart" width="130%" height="60"></canvas>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+{% block js  %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
+<script>
+    // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Blue", "Red", "Yellow", "Green"],
+    datasets: [{
+      data: [100,20,30,70],
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+    }],
+  },
+});
+
+</script>
+
+
+{% endblock %}
+
+
+
+
+

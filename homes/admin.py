@@ -13,7 +13,7 @@ admin.site.register(Galla,GallaAdmin)
 admin.site.register(GBrigada,GbrigadaAdmin)
 
 
-admin.site.register([Hudud,Massiv,OmborG,Pasport,Lavozim])
+admin.site.register([Hudud,Massiv,OmborG,Pasport,Lavozim,Pay])
 
 from django_reverse_admin import ReverseModelAdmin
 
@@ -27,3 +27,5 @@ class HodimAdmin(ReverseModelAdmin):
                       
                       ]
 admin.site.register(Hodim, HodimAdmin)
+
+
