@@ -31,6 +31,15 @@ def birkunda_s(obj,num_hudud,date):
     
     result=result.values('birkunda')                    
     return result
+def sana_chart(obj,date):
+    sana=[]
+    for i in date:
+        result=obj.objects.all().annotate(
+                        birkunda=Sum(F('sofVazn')/1000.000,filter=Q(date=date)&Q(imzo=True), output_field=FloatField()),
+                    )
+        sana.append(result)
+                      
+    return sana    
 
 def item_ombor_G(obj,ombor):
     result=obj.objects.filter(name=ombor).annotate(

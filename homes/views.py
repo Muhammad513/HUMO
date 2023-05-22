@@ -1,8 +1,10 @@
 from django.shortcuts import render
-
+from .models import*
+from login.function import sana_chart
+from django.db.models import Sum,Count,Q
 def homes(request):
-    
-    return render(request,'homes/dashboard.html')
+    context={}
+    return render(request,'homes/homes.html',context)
 
 
 
