@@ -22,6 +22,7 @@ urlpatterns = [
     path('dmkimzo/<str:pk>/',dmkimzopk,name='dmkimzopk'),
     path('ishxaqi/',ishxaqi,name='ishxaqi'),
     path('plastik/',plastik,name='plastik'),
+    path('yukhatlar/',yukhatlar,name='yukhatlar'),
 
     
 

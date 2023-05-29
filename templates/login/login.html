@@ -15,11 +15,7 @@
 <body style="background-image: url('https://images.alphacoders.com/928/thumb-1920-928999.jpg'); background-size:cover;">
     
     <form id="accesspanel" method="post">
-      <div class="ui bottom right attached label mini black border" style="background-color:#111 ;">
-        <p>
-          <a href="{% url 'reg' %}" class="link-danger link-offset-3 link-underline-opacity-100 link-underline-opacity-100-hover">&nbsp;R&nbsp;O'&nbsp;Y&nbsp;X&nbsp;A&nbsp;T&nbsp;D&nbsp;A&nbsp;N&nbsp;&nbsp; O'&nbsp;T&nbsp;I&nbsp;SH</a>
-        </p>
-      </div>
+      
     {% csrf_token %}
     <h1 id="litheader"><i class='fas fa-tractor blue-color'></i>AGROMAX MCHJ</h1>
     <p style="text-align: center;"><span id="messages" style="color: aliceblue;">{{message}}</span></p>
@@ -41,14 +37,7 @@
       <input type="submit" name="Login" id="go" value="T I Z I M G A   K I R I SH">
     </p>
    </form>
-   <div class="ui segment">
-    <div class="ui active inverted dimmer">
-      <div class="ui text loader">Loading</div>
-    </div>
-    <p></p>
-  </div>
-
-    
+     
 </body>
 </html>
 

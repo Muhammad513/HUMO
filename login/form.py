@@ -29,7 +29,7 @@ class Gallaform(forms.ModelForm):
     
     class Meta:
         model=Galla
-        fields=('date','yuk_num','brigada','ombor','yuk_num','tr_marka','tr_num','tr_name')
+        fields=('date','yuk_num','brigada','ombor','yuk_num','tr_marka','tr_num','tr_name',"sender")
         widgets={
             'yuk_num':forms.TextInput(attrs={'type':'number'}),
             'date':forms.TextInput(attrs={'type':'date','value':date}),

@@ -58,7 +58,7 @@ def setting(request):
 def paxta(request):
     
     
-    return render(request,'homes/paxta.html')
+    return render(request,'404/404.html')
 
 @login_required(login_url='login')
 def galla(request):
@@ -139,14 +139,17 @@ def tavalud(request):
     context={"tavalud":tavalud,"dates":dates,'year':year}
     return render(request,'kadr/tavalud.html',context)        
 
-
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['nazoratchi','admin'])
 def gallaform(request):
+    sender=request.user
     form=Gallaform()
     if request.method == "POST":
         form=Gallaform(request.POST)
         if form.is_valid():
-            form.save()
+            forms=form.save(commit=False)
+            forms.sender=request.user
+            forms.save()
             messages.success(request,"ЮК ХАТИ ЖУНАТИЛДИ")
             return redirect('gallaform')
         else:
@@ -155,13 +158,14 @@ def gallaform(request):
     context={'form':form}
     return render(request,'form/yukhati.html',context)    
 
-
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['Ombor','admin'])
 def zavodimzo(request):
     zavod=Galla.objects.filter(ombor__name="ZAVOD",imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
     context={'zavod':zavod}
     return render(request,'form/zavodimzo.html',context)    
 
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['Ombor','admin'])
 def zavodimzopk(request,pk):
     imzo=Galla.objects.get(id=pk)
@@ -175,12 +179,16 @@ def zavodimzopk(request,pk):
     context={"form":form,"imzo":imzo}
     return render(request,'form/zavodimzopk.html',context)    
 #------------------------------------------------------------------------------------------------
+
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['dmk','admin'])
 def dmkimzo(request):
     dmk=Galla.objects.filter(ombor__name__in=['DMK-1',"DMK-2"],imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
     context={'dmk':dmk}
     return render(request,'form/dmkimzo.html',context)    
 
+
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['dmk','admin'])
 def dmkimzopk(request,pk):
     imzo=Galla.objects.get(id=pk)
@@ -194,25 +202,17 @@ def dmkimzopk(request,pk):
     return render(request,'form/dmkimzopk.html',context)    
 
 
-
+@login_required(login_url='login')
 def ishxaqi(request):
-    user=request.user.profile.id
-    hodims=Hodim.objects.get(hodim=user).id
-    pay=Pay.objects.get(hodim=hodims)
     
-    
-    
-    
-    context={"pay":pay}
-
-    
-    return render(request, 'profile/profile.html',context)
+    return render(request, '404/404.html')
 
 def plastik(request):
     
-    return render(request, 'ishxaqi/plastik.html')    
+    return render(request, '404/404.html')    
 from .form import RegistrForm
 
+@login_required(login_url='login')
 def reg(request):
     form = RegistrForm()
     if request.method == "POST":
@@ -229,3 +229,11 @@ def reg(request):
     
 
     return render(request, 'login/reg.html',context)        
+
+
+
+def yukhatlar(request):
+    user=request.user
+    dmk=Galla.objects.filter(sender=user).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
+    context={'dmk':dmk}
+    return render(request,'profile/yukhati.html',context)        

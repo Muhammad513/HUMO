@@ -3,7 +3,7 @@ from .choices import tr_marka
 import os
 import datetime
 from login.models import Profile
-
+from django.contrib.auth.models import User
 
 
 def get_image_path(instance,filename):
@@ -21,6 +21,7 @@ class GBrigada(models.Model):
         return self.br_num
 
 class Galla(models.Model):
+    sender=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     date=models.DateField()
     brigada=models.ForeignKey('GBrigada',on_delete=models.PROTECT)
     ombor=models.ForeignKey("OmborG",on_delete=models.CASCADE)
