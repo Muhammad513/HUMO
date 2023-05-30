@@ -1,13 +1,13 @@
 {% load django_template_maths %}
-
+{% load static %}
 <div class="ui link cards ">
     {% for i in kadr %}
     <div class="card">
       <div class="image">
         {% if i.hodim.pic.url %}
-        <img src="{{i.hodim.pic.url}}">
+        <div style="background-image: url('{{ i.hodim.pic.url }}') ;width: auto;height:300px; background-size: auto 300px; background-repeat: no-repeat; background-position: center;"></div>
         {% else %}
-        <img src="/media/default/avatar.png">
+        <img src="/media/default/avatar.png" class="ui large image">
         {% endif %}
       </div>
       <div class="content">
