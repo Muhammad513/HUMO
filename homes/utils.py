@@ -11,11 +11,10 @@ def get_file_path(file_name:str) -> str:
 
 
 def write_galla_to_excel(file_name:str,sheet_name:str,gallas_data: Union[tuple,list]):
-    file_path=get_file_path(file_name=file_name)
-    book=openpyxl.open(filename=file_path)
-    if not sheet_name in book.sheetnames:
-        book.create_sheet(sheet_name)
-    sheet=book[sheet_name]
+    filepath = "media/xls/new.xlsx"
+    book=openpyxl.Workbook()
+    sheet=book.active
+      
     sheet.column_dimensions['A'].width=10
     sheet.column_dimensions['B'].width=11
     sheet.column_dimensions['C'].width=15
@@ -44,6 +43,6 @@ def write_galla_to_excel(file_name:str,sheet_name:str,gallas_data: Union[tuple,l
             cell=sheet.cell(row=i_row,column=i_col,value=value)
             cell.alignment=Alignment(horizontal='center',vertical='center')
         
-        book.save(file_name)
+        book.save(filepath)
         book.close()
         
