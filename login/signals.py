@@ -1,6 +1,7 @@
 from django.dispatch import Signal,receiver
 from django.db.models.signals import post_delete,post_save
 from .models import Profile
+from homes.models import*
 from django.contrib.auth.models import User
 
 
@@ -22,3 +23,4 @@ def profile_delete(sender,instance,**kwargs):
     user=profile.user
     user.delete()        
    
+        

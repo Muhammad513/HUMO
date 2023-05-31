@@ -10,8 +10,8 @@ from datetime import datetime
 from login.form import Gallaform,Gallaimzo
 from .decarators import*
 from django.contrib.auth.decorators import login_required
-
-
+from homes.service import GallaService
+from homes.utils import write_galla_to_excel
 def loginPage(request):
     if request.method=="POST":
         username=request.POST["username"]
@@ -110,8 +110,20 @@ def ombor(request):
 @login_required(login_url='login')
 def reestr(request):
     res=Galla.objects.all().order_by('-id').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
+    data_galla=GallaService.get__galla_list(field=['id','date','brigada__br_num','brigada__brigadir','ombor__name','yuk_num','tr_marka','tr_num','tr_name','brutto','tara','sofVazn','sender__username'])
+    write_galla_to_excel(file_name='media/xls/galla.xlsx',sheet_name='reestr',gallas_data=data_galla)
+
+
+
     context={'res':res}
     return render(request,'homes/restr.html',context) 
+
+
+
+
+
+
+
 def way(request):
     res=Galla.objects.filter(imzo=True).order_by('-id').values('date','brigada','brutto','tara','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','sofVazn')
     context={'res':res}
@@ -126,7 +138,7 @@ def stop(request):
 def kadr(request):
     kadr=Hodim.objects.all().order_by('bolim')
     year=datetime.now().strftime("%Y")
-    
+   
     context={"kadr":kadr,'year':year}
     return render(request,'kadr/kadr-inc.html',context)        
 

@@ -81,7 +81,6 @@ class Hodim(models.Model):
     pasport=models.OneToOneField('Pasport',on_delete=models.PROTECT)
     card=models.OneToOneField('Card',on_delete=models.PROTECT,null=True)
     hodim=models.OneToOneField('login.Profile',on_delete=models.PROTECT,null=True,blank=True)
-   
     
     
     def __str__(self) -> str:
