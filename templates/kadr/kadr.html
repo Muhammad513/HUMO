@@ -5,17 +5,17 @@
     <div class="card">
       <div class="image">
         {% if i.hodim.pic.url %}
-        <img src="{{i.hodim.pic.url}}">
+        <div style="background-image: url('{{ i.hodim.pic.url }}') ;width: 180;height:300px; background-size: 300px 300px; background-repeat: no-repeat; background-position: center;"></div>
         {% else %}
         <img src="/media/default/avatar.png">
         {% endif %}
       </div>
       <div class="content">
         <div class="meta pb-2">
-          <p class="text-info">{{i.bolim}}</p> 
+          <p class="text-info">{{i.bolim}}</p>
         </div>
         <div class="header">{{i.fizlitsa.l_name}} {{i.fizlitsa.f_name}} {{i.fizlitsa.ful_name}}</div>
-        
+
         <div class="description">
           <p class="text-info" >{{i.lavozim}}</p>
         </div>
