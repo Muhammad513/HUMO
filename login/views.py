@@ -90,7 +90,7 @@ def galla(request):
     hudud_3=zip(br_item_3,birkunda)
     br_itemsm_3=item_hudud_G(GBrigada,3)
     birkundasm=birkunda_s(GBrigada,3,date)
-    hududsm_3=zip(br_itemsm_3,birkunda)
+    hududsm_3=zip(br_itemsm_3,birkundasm)
     
     
     context={"hudud_1":hudud_1,"hudud_2":hudud_2,"hudud_3":hudud_3,"date":date,
