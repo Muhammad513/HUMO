@@ -14,6 +14,9 @@ def write_galla_to_excel(file_name:str,sheet_name:str,gallas_data: Union[tuple,l
     filepath = "media/xls/new.xlsx"
     book=openpyxl.Workbook()
     sheet=book.active
+    sheet.delete_cols(1, 20)
+    sheet.delete_rows(1, 1000)
+    book.save(filepath)
       
     sheet.column_dimensions['A'].width=10
     sheet.column_dimensions['B'].width=11
