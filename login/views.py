@@ -102,9 +102,11 @@ def galla(request):
 @login_required(login_url='login')
 def ombor(request):
     dmk1=item_ombor_G(OmborG,"DMK-1")
-    dmk2=item_ombor_G(OmborG,"DMK-2")
+    dmk2=item_ombor_G(OmborG,"DMK-BIRJA")
     zavod=item_ombor_G(OmborG,"ZAVOD")
-    context={"dmk1":dmk1,'dmk2':dmk2,"zavod":zavod}
+    urug=item_ombor_G(OmborG,"URUG'LIK")
+    
+    context={"dmk1":dmk1,'dmk2':dmk2,"zavod":zavod,'urug':urug}
     return render(request,'homes/dmk.html',context)
 
 @login_required(login_url='login')
@@ -195,7 +197,7 @@ def zavodimzopk(request,pk):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['dmk','admin'])
 def dmkimzo(request):
-    dmk=Galla.objects.filter(ombor__name__in=['DMK-1',"DMK-2"],imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
+    dmk=Galla.objects.filter(ombor__name__in=['DMK-1',"DMK-BIRJA","URUG'LIK"],imzo=False).order_by('-id').values('date','brigada','ombor__name','yuk_num','tr_num','tr_marka','tr_name','imzo','id')
     context={'dmk':dmk}
     return render(request,'form/dmkimzo.html',context)    
 

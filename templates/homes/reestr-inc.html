@@ -31,11 +31,13 @@
         <td>{{i.tara|default_if_none:"0"}}</td>
         <td>{{i.sofVazn|default_if_none:"0"}}</td>
         {% if i.ombor__name == 'DMK-1' %}
-        <td><i class="circle icon text-warning pr-2 "></i>{{i.ombor__name}}</td>
-        {% elif i.ombor__name == 'DMK-2'  %}
         <td><i class="circle icon text-success pr-2 "></i>{{i.ombor__name}}</td>
-        {% elif i.ombor__name == 'ZAVOD' %}
+        {% elif i.ombor__name == 'DMK-BIRJA'  %}
+        <td><i class="circle icon text-warning pr-2 "></i>{{i.ombor__name}}</td>
+        {% elif i.ombor__name == "URUG'LIK" %}
         <td><i class="circle icon text-danger pr-2 "></i>{{i.ombor__name}}</td>
+        {% elif i.ombor__name == "ZAVOD" %}
+        <td><i class="circle icon text-dark pr-2 "></i>{{i.ombor__name}}</td>
         {% endif %}
         {% if i.imzo %}
         <td class="text-center"><button class="ui primary button mini p-1">Подтверждён</button></td>

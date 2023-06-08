@@ -18,16 +18,19 @@
                 <thead class="" style="font-weight: 900; font-size: 15px;">
                   <tr style="line-height: 30px;" class="">
                     
-                    <th colspan="6" class="align-middle"> ДОН МАХСУЛОТЛАРИ КАМБИНАТИ</th>
-                    <th colspan="2" rowspan="2"><i class="circle icon text-danger pr-2"></i>КОРХОНА ОМБОРИ</th>
-                    <th colspan="2" rowspan="2">АГРОМАКС БУЙИЧА</th>
+                    <th colspan="8" class="align-middle"> Д&nbsp;О&nbsp;Н&nbsp;&nbsp;&nbsp; М&nbsp;А&nbsp;Х&nbsp;С&nbsp;У&nbsp;Л&nbsp;О&nbsp;Т&nbsp;Л&nbsp;А&nbsp;Р&nbsp;И&nbsp;&nbsp;&nbsp; К&nbsp;А&nbsp;М&nbsp;Б&nbsp;И&nbsp;Н&nbsp;А&nbsp;Т&nbsp;И</th>
+                    <th colspan="2" rowspan="2" class="align-middle"><i class="circle icon text-dark pr-2"></i>КОРХОНА ОМБОРИ</th>
+                    <th colspan="2" rowspan="2" class="align-middle">АГРОМАКС БУЙИЧА</th>
                   </tr>
                   <tr style="line-height: 25px;" class="">
-                    <th colspan="2"><i class="circle icon text-warning pr-2 "></i>ДАВЛАТГА СОТИШ </th>
-                    <th colspan="2"><i class="circle icon text-success pr-2 "></i> БИРЖА ОРКАЛИ</i></th>
+                    <th colspan="2"><i class="circle icon text-success pr-2 "></i>ДАВЛАТГА СОТИШ </th>
+                    <th colspan="2"><i class="circle icon text-warning pr-2 "></i> БИРЖА ОРКАЛИ</i></th>
+                    <th colspan="2"><i class="circle icon text-danger pr-2 "></i> УРУГЛИК</i></th>
                     <th colspan="2">ЖАМИ ДМК БУЙИЧА</i></th>
                   </tr>
                   <tr style="line-height: 40px;" class="">
+                    <th>РЕЖА</th>
+                    <th>ХАКИКАТДА</th>
                     <th>РЕЖА</th>
                     <th>ХАКИКАТДА</th>
                     <th>РЕЖА</th>
@@ -47,6 +50,10 @@
                     <td class="dxak">{{i.sums|default_if_none:"0"|floatformat:1}}</td>
                     {% endfor %}
                     {% for i in dmk2 %}
+                    <td class="dreja">{{i.reja|default_if_none:"0"|floatformat:1}}</td>
+                    <td class="dxak">{{i.sums|default_if_none:"0"|floatformat:1}}</td>
+                    {% endfor %}
+                    {% for i in urug %}
                     <td class="dreja">{{i.reja|default_if_none:"0"|floatformat:1}}</td>
                     <td class="dxak">{{i.sums|default_if_none:"0"|floatformat:1}}</td>
                     {% endfor %}

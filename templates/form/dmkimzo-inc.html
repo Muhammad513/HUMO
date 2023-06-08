@@ -22,7 +22,15 @@
         <td>{{i.tr_marka}}</td>
         <td>{{i.tr_num}}</td>
         <td>{{i.tr_name}}</td>
+        {% if i.ombor__name == 'DMK-1' %}
+        <td><i class="circle icon text-success pr-2 "></i>{{i.ombor__name}}</td>
+        {% elif i.ombor__name == 'DMK-BIRJA'  %}
+        <td><i class="circle icon text-warning pr-2 "></i>{{i.ombor__name}}</td>
+        {% elif i.ombor__name == "URUG'LIK" %}
         <td><i class="circle icon text-danger pr-2 "></i>{{i.ombor__name}}</td>
+        {% elif i.ombor__name == "ZAVOD" %}
+        <td><i class="circle icon text-dark pr-2 "></i>{{i.ombor__name}}</td>
+        {% endif %}
         <td class="text-center">
             <a href="{% url 'dmkimzopk' i.id %}">
                 <div class="compact ui button mini green">
